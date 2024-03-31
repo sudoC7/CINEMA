@@ -1,0 +1,117 @@
+a.Informations d’un film (id_film) : titre, année, durée (au format HH:MM) et
+réalisateur
+
+SELECT film.titre, film.anneeSortie, SEC_TO_TIME(film.duree * 60) AS duree, realisateur.prenomReal, realisateur.nomReal
+FROM film
+INNER JOIN realisateur ON film.id_film = realisateur.id_realisateur;
+
+========================================================================================================
+
+b. Liste des films dont la durée excède 2h15 classés par durée (du + long au + court)
+
+SELECT film.titre, film.anneeSortie, SEC_TO_TIME(film.duree * 60) AS duree, realisateur.prenomReal, realisateur.nomReal
+FROM film
+INNER JOIN realisateur ON film.id_film = realisateur.id_realisateur
+WHERE duree > 135 ORDER BY duree DESC;
+
+========================================================================================================
+
+c. Liste des films d’un réalisateur (en précisant l’année de sortie)
+
+SELECT film.titre, film.anneeSortie AS anneeSortie, realisateur.nomReal, realisateur.prenomReal 
+FROM realisateur 
+INNER JOIN film ON film.id_film = realisateur.id_realisateur;
+
+========================================================================================================
+
+d. Nombre de films par genre (classés dans l’ordre décroissant)
+
+SELECT genre.genreFilm, COUNT(categorie.id_film) AS FilmsParGenre
+FROM genre
+INNER JOIN categorie ON categorie.id_genre = genre.id_genre
+INNER JOIN film ON categorie.id_film = film.id_film
+GROUP BY categorie.id_genre
+ORDER BY COUNT(categorie.id_film) DESC; 
+
+========================================================================================================
+
+e. Nombre de films par réalisateur (classés dans l’ordre décroissant)
+
+SELECT realisateur.nomReal, COUNT(film.id_realisateur) AS Film
+FROM realisateur
+INNER JOIN film ON film.id_realisateur = realisateur.id_realisateur
+GROUP BY realisateur.nomReal
+ORDER BY COUNT(film.id_realisateur) DESC;
+
+========================================================================================================
+
+f. Casting d’un film en particulier (id_film) : nom, prénom des acteurs + sexe
+
+
+SELECT film.id_film, film.titre AS film, CONCAT(acteur.nom, ' ', acteur.prenom) AS fullNameActor, acteur.sexe
+FROM acteur
+INNER JOIN jouerole ON jouerole.id_acteur = acteur.id_acteur
+INNER JOIN film ON film.id_film = jouerole.id_film
+WHERE film.id_film = 3
+
+========================================================================================================
+
+g. Films tournés par un acteur en particulier (id_acteur) avec leur rôle et l’année de
+sortie (du film le plus récent au plus ancien)
+
+SELECT acteur.id_acteur AS nomActeur, film.titre, roleperso.nomPerso, film.anneeSortie
+FROM acteur
+INNER JOIN jouerole ON acteur.id_acteur = jouerole.id_acteur
+INNER JOIN roleperso ON jouerole.id_role_personnage = roleperso.id_roleperso
+INNER JOIN film ON film.id_film = jouerole.id_film
+WHERE acteur.id_acteur = 3
+ORDER BY film.anneeSortie DESC;
+
+========================================================================================================
+
+h. Liste des personnes qui sont à la fois acteurs et réalisateurs ( je remplace le nom du realisateur (Zemeckis Robert) du film Forrest Gump par (Hanks Tom) ) 
+
+SELECT CONCAT(acteur.nom, ' ', acteur.prenom) AS fullnameActor, CONCAT(realisateur.nomReal, ' ', realisateur.prenomReal) AS fullnameReal
+FROM acteur
+INNER JOIN jouerole ON jouerole.id_acteur = acteur.id_acteur
+INNER JOIN film ON film.id_film = jouerole.id_film
+INNER JOIN realisateur ON realisateur.id_realisateur = film.id_film
+WHERE CONCAT(acteur.nom, ' ', acteur.prenom) = CONCAT(realisateur.nomReal, ' ', realisateur.prenomReal);
+
+========================================================================================================
+
+i. Liste des films qui ont moins de 5 ans (classés du plus récent au plus ancien)
+
+SELECT titre, (YEAR(NOW()) - anneeSortie) AS moins5ans
+FROM film 
+WHERE (YEAR(NOW()) - anneeSortie) < 5 
+ORDER BY (YEAR(NOW()) - anneeSortie) DESC;
+
+========================================================================================================
+
+j. Nombre d’hommes et de femmes parmi les acteurs
+
+SELECT sexe, COUNT(*) AS nombre
+FROM acteur
+GROUP BY sexe;
+
+========================================================================================================
+
+k. Liste des acteurs ayant plus de 50 ans (âge révolu et non révolu)
+
+SELECT CONCAT(nom, ' ', prenom) AS fullName, FLOOR(DATEDIFF(NOW(),dateNaissance)/365) AS ageNonRevolu, ROUND(DATEDIFF(NOW(),dateNaissance)/365) AS ageRevolu
+FROM acteur;	
+
+========================================================================================================
+
+l. Acteurs ayant joué dans 3 films ou plus
+
+SELECT COUNT(jouerole.id_acteur) AS nombreDeFilms, CONCAT(acteur.nom, ' ', acteur.prenom) AS fullName
+FROM acteur
+INNER JOIN jouerole ON acteur.id_acteur = jouerole.id_acteur
+INNER JOIN roleperso ON jouerole.id_role_personnage = roleperso.id_roleperso
+INNER JOIN film ON film.id_film = jouerole.id_film
+GROUP BY jouerole.id_acteur 
+HAVING COUNT(jouerole.id_acteur) >= 3;
+
+========================================================================================================
