@@ -20,13 +20,17 @@
         </nav>
 
     </main>
-    
+
+
     <div>
         <?= $content ?>
     </div>
 
+
     <footer>
         
     </footer>
+        
+    <script src="public/js/script.js"></script>
 </body>
 </html>
