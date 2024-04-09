@@ -12,10 +12,12 @@
 
         <nav class="navigate">
             <ul>
-                <li>Films</li>
-                <li>Genre</li>
-                <li>Acteurs</li>
-                <li>Réalisateurs</li>
+
+                <li><a href="view/listFilms.php">Films</a></li>
+                <li><a href="view/listGenres.php">Genre</a></li>
+                <li><a href="view/listActeurs.php">Acteurs</a></li>
+                <li><a href="view/listRealisateurs.php">Realisateurs</a></li>
+                
             </ul>
         </nav>
 
