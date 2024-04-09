@@ -1,2 +1,3 @@
-Dans le "model" on y trouvera pour le moment que le fichier "connect.php" permettant de se connecter à la BDD (grâce à PDO)
+Dans le "model" on y trouvera pour le moment que le fichier
+"Connect.php" permettant de se connecter à la BDD (grâce à PDO)
 
