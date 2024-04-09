@@ -7,10 +7,26 @@
     <title><?= $title ?></title>
 </head>
 <body>
+    <main class="principal">
+        <h1>KapkanCinema</h1>
+
+        <nav class="navigate">
+            <ul>
+                <li>Films</li>
+                <li>Genre</li>
+                <li>Acteurs</li>
+                <li>Réalisateurs</li>
+            </ul>
+        </nav>
+
+    </main>
     
     <div>
         <?= $content ?>
     </div>
 
+    <footer>
+        
+    </footer>
 </body>
 </html>
