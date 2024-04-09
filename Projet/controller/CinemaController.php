@@ -16,6 +16,19 @@
 
             require "view/listFilms.php";
         }
+
+        public function listActeurs() {
+            // requête Acteurs
+        }
+
+        public function listRealisateurs() {
+            // requête Realisateurs
+        }
+
+        public function listGenre() {
+            // requête Genre
+        }
+
     }
 
 
