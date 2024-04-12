@@ -9,7 +9,7 @@
         const USER = "root";
         const PASS = "";
 
-        public function static seConnecter() {
+        public static function seConnecter() {
             try{
                 return new \PDO(
                     "mysqp:host=".self::HOST.";dbname=".self::DB.";charset=utf8", self::USER, self::PASS);
