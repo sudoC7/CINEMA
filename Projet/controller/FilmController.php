@@ -28,7 +28,7 @@
 
         //Ajout d'un casting
 
-        public function ajoutCasting() 
+        public function ajoutFilm() 
 
         //Supprimer un film 
 
