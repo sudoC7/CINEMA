@@ -16,5 +16,10 @@
             require "view/listFilms.php";
         }
 
+
+        //Details des RolePersos
+        //Afficher un RolePerso
+        //Suprimer un RolePerso
+
     }
 ?>

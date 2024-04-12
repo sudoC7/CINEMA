@@ -16,6 +16,12 @@
             require "view/listRealisateurs.php";
         }
 
+        
+        //Afficher les réalisateurs 
+        //Ajouter un réalisateur 
+        //Supprimer un réalisateur 
+
+
     }
 
 ?>

@@ -17,5 +17,11 @@
             require "view/listGenres.php";
         }
 
+
+        // Lister les films par genre 
+        // Supprimer un genre
+
+
+
     }
 ?>

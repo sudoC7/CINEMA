@@ -17,6 +17,13 @@
             require "view/listFilms.php";
         }
 
+
+        //Détails d'un film 
+        //Ajout d'un film 
+        //Ajout d'un casting
+        //Supprimer un film 
+
+
     }
 
 
