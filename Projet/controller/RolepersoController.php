@@ -18,8 +18,15 @@
 
 
         //Details des RolePersos
-        //Afficher un RolePerso
+        public function afficherRolePerso()
+        
+        //Afficher ???
+        //Ajouter un RolePerso
+        public function ajouterRolePerso()
+        
+        
         //Suprimer un RolePerso
+        public function supprimRolePerso()
 
     }
 ?>

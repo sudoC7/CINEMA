@@ -19,8 +19,10 @@
 
 
         // Lister les films par genre 
+        public function listFilmGenre()
+        
         // Supprimer un genre
-
+        public function supprimGenre()
 
 
     }

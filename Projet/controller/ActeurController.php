@@ -16,10 +16,15 @@
             require "view/listActeurs.php";
         }
 
-        
-        // Afficher les détails d'un acteur 
-        // Ajouter un acteur 
-        // Supprimer un Acteur 
 
+        // Afficher les détails d'un acteur 
+        public function detailsActeur()
+        
+        // Ajouter un acteur 
+        public function ajoutActeur()
+
+        // Supprimer un Acteur 
+        public function supprimActeur()
+        
     }
 ?>

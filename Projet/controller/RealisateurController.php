@@ -16,11 +16,15 @@
             require "view/listRealisateurs.php";
         }
 
-        
-        //Afficher les réalisateurs 
-        //Ajouter un réalisateur 
-        //Supprimer un réalisateur 
 
+        //Afficher les réalisateurs 
+        public function afficheRealisateur()
+
+        //Ajouter un réalisateur 
+        public function ajoutRealisateur()
+
+        //Supprimer un réalisateur 
+        public function spprimRealisateur()
 
     }
 
