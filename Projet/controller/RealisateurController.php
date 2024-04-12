@@ -11,8 +11,10 @@
 
         public function listRealisateurs() {
             $pdoRealisateurs = Connect::seConnecter();
-            // requete qui va afficher la liste des acteurs (nom prenom dateNaissance)
-            $requeteRealisateurs = $pdoRealisateurs->query("SELECT * FROM realisateur");
+
+            $rocketReal = "SELECT nomReal, prenomReal, dateNaissanceReal FROM realisateur";
+            $requeteRealisateurs = $pdoRealisateurs->query($rocketReal);
+            
             require "view/listRealisateurs.php";
         }
 

@@ -11,10 +11,10 @@
 
         public function listFilms() {
 
-            $rocket = "SELECT titre, anneeSortie FROM film";
+            $rocketFilm = "SELECT titre, anneeSortie FROM film ORDER BY anneeSortie DESC";
 
             $pdoFilms = Connect::seConnecter();
-            $requeteFilms = $pdoFilms->query($rocket);
+            $requeteFilms = $pdoFilms->query($rocketFilm);
 
             require "view/listFilms.php";
         }
