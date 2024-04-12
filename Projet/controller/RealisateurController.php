@@ -18,13 +18,13 @@
 
 
         //Afficher les réalisateurs 
-        public function afficheRealisateur()
+        public function afficheRealisateur() {}
 
         //Ajouter un réalisateur 
-        public function ajoutRealisateur()
+        public function ajoutRealisateur() {}
 
         //Supprimer un réalisateur 
-        public function spprimRealisateur()
+        public function spprimRealisateur() {}
 
     }
 

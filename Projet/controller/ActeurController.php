@@ -18,13 +18,13 @@
 
 
         // Afficher les détails d'un acteur 
-        public function detailsActeur()
+        public function detailsActeur() {}
         
         // Ajouter un acteur 
-        public function ajoutActeur()
+        public function ajoutActeur() {}
 
         // Supprimer un Acteur 
-        public function supprimActeur()
+        public function supprimActeur() {}
 
     }
 ?>
