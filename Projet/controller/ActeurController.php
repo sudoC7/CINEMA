@@ -3,7 +3,7 @@
     namespace Controller;
     use Model\Connect;
 
-    class RealisateurController {
+    class ActeurController {
 
         public function listActeurs() {
 
@@ -25,6 +25,6 @@
 
         // Supprimer un Acteur 
         public function supprimActeur()
-        
+
     }
 ?>

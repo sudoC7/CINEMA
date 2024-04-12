@@ -3,7 +3,7 @@
     namespace Controller;
     use Model\Connect;
 
-    class listRoleperso {
+    class RolepersoController {
 
         /**
          * Lister le Role des Personnage 

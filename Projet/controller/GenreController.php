@@ -3,7 +3,7 @@
     namespace Controller;
     use Model\Connect;
 
-    class listGenres {
+    class GenreController {
 
         public function listGenres() {
 
@@ -20,7 +20,7 @@
 
         // Lister les films par genre 
         public function listFilmGenre()
-        
+
         // Supprimer un genre
         public function supprimGenre()
 
