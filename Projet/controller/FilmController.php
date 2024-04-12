@@ -23,19 +23,6 @@
 
 
 
-    public function detailFilm() {
-
-        $pdoDetailFilm = Connect::seConnecter();
-
-        //requete qui n'affichera qu'un acteur en particulier 
-        $requeteDetailFilm = $pdoDetailFilm->prepare("SELECT * FROM acteur WHERE id_acteur : id");
-        $requeteDetailFilm -> execute(["id"=>$id]);
-
-    }
-
-
-
-
 
 
 ?>
