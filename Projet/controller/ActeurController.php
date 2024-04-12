@@ -6,6 +6,10 @@
     class RealisateurController {
 
         public function listActeurs() {
+
+            /**
+             * Lister les Acteurs 
+            */
                 
             $pdoActeurs = Connect::seConnecter();
             // requete qui va afficher la liste des acteurs (nom prenom dateNaissance)

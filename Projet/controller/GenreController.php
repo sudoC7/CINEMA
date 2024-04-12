@@ -6,6 +6,10 @@
     class listGenres {
 
         public function listGenres() {
+
+            /**
+            * Lister les Genre (category)
+            */
         
             $pdoGenres = Connect::seConnecter();
             // requete qui va afficher la liste des categories des films (action, comedy...)
