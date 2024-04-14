@@ -4,16 +4,17 @@
     use Model\Connect;
 
     class GenreController {
+        
+        /**
+        * Lister les Genre (category)
+        */
 
         public function listGenres() {
 
-            /**
-            * Lister les Genre (category)
-            */
+            $rocketGenres ="SELECT genreFilm FROM genre";
         
             $pdoGenres = Connect::seConnecter();
-            // requete qui va afficher la liste des categories des films (action, comedy...)
-            $requeteGenres = $pdoGenres->query("SELECT * FROM genre");
+            $requeteGenres = $pdoGenres->query($rocketGenres);
             require "view/listGenres.php";
         }
 
