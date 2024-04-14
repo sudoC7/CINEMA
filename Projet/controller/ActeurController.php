@@ -10,9 +10,12 @@
             /**
              * Lister les Acteurs 
             */
+
+            $rocketActeurs = "SELECT nom, prenom, sexe
+            FROM acteur";
+            
             $pdoActeurs = Connect::seConnecter();
-            // requete qui va afficher la liste des acteurs (nom prenom dateNaissance)
-            $requeteActeurs = $pdoActeurs->query("SELECT * FROM acteur");
+            $requeteActeurs = $pdoActeurs->query($rocketActeurs);
             require "view/listActeurs.php";
         }
 
