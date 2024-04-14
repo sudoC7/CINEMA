@@ -3,8 +3,10 @@
 	ob_start();
 
     $title = "Films";
-?>
 
+?>
+	<h2>LES FILMS</h2>
+	<!-- Compte le nombre de realisateurs  -->
 	<p>On a <?= $requeteFilms->rowCount() ?> films</p>
 
 	<table>
@@ -15,6 +17,7 @@
 			</tr>
 		</thead>
 		<tbody>
+			<!-- Affiche tous les films du tableau  -->
 			<?php foreach ($requeteFilms->fetchAll() as $film) { ?>
 				<tr>
 					<td><?= $film["titre"] ?></td>
