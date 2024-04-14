@@ -23,7 +23,7 @@ if(isset($_GET["action"])) {
     switch ($_GET["action"]) {
         case "listFilms" : $ctrlFilm->listFilms(); break; 
         case "listActeurs" : $ctrlActeur->listActeurs(); break;
-        case "listGenre" : $ctrlGenre->listGenre(); break;
+        case "listGenres" : $ctrlGenre->listGenres(); break;
         case "listRealisateurs" : $ctrlRealisateur->listRealisateurs(); break;
         case "listRole" : $ctrlRoleperso->listRole($id);
     }
