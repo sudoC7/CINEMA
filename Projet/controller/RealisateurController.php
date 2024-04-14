@@ -10,11 +10,11 @@
          */
 
         public function listRealisateurs() {
-            $pdoRealisateurs = Connect::seConnecter();
-
-            $rocketReal = "SELECT nomReal, prenomReal, dateNaissanceReal FROM realisateur";
-            $requeteRealisateurs = $pdoRealisateurs->query($rocketReal);
             
+            $rocketReal = "SELECT nomReal, prenomReal, dateNaissanceReal FROM realisateur";
+            
+            $pdoRealisateurs = Connect::seConnecter();
+            $requeteRealisateurs = $pdoRealisateurs->query($rocketReal);
             require "view/listRealisateurs.php";
         }
 

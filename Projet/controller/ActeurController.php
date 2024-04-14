@@ -3,19 +3,18 @@
     namespace Controller;
     use Model\Connect;
 
-    class ActeurController {
+    class ActeurController   
+        /**
+         * Lister les Acteurs 
+        */
 
         public function listActeurs() {
 
-            /**
-             * Lister les Acteurs 
-            */
+            $rocketActeurs = "SELECT nom, prenom, sexe FROM acteur";
 
-            $rocketActeurs = "SELECT nom, prenom, sexe
-            FROM acteur";
-            
             $pdoActeurs = Connect::seConnecter();
             $requeteActeurs = $pdoActeurs->query($rocketActeurs);
+           
             require "view/listActeurs.php";
         }
 
