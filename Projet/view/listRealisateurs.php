@@ -3,11 +3,12 @@
 	ob_start();
 
     $title = "Réalisateurs";
-	var_dump($requeteRealisateurs);
 ?>
 
 
-	<h1>LES REALISATEURS</h1>
+	<h2>LES REALISATEURS</h2>
+	<!-- Compte le nombre de realisateurs  -->
+	<p>Il y'a <?= $requeteRealisateurs->rowCount(); ?> realisateurs</p>
 
 	<table>
 		<thead>
@@ -15,10 +16,10 @@
 				<th>Nom</th>
 				<th>Prenom</th>
 				<th>Date Naissance</th>
-
 			</tr>
 		</thead>
 		<tbody>
+			<!-- Affiche tous les réalisateurs du tableau -->
 			<?php foreach ($requeteRealisateurs->fetchAll() as $realisateur) { ?>
 				<tr>
 					<td><?= $realisateur["nomReal"] ?></td>
