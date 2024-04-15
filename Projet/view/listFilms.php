@@ -22,10 +22,10 @@
 			<?php foreach ($requeteFilms->fetchAll() as $film) { ?>
 
 				<tr>	<!-- ajout de liens pour detailFilm.php ... -->
-					<td><a href="index.php?id=<?= $requeteFilms["id_film"]?>"><?= $film["titre"] ?></a></td>
+					<td><a href="index.php?id=<?= $film["id_film"]; ?>"><?= $film["titre"] ?></a></td>
 					<td><?= $film["anneeSortie"] ?></td>
 				</tr>
-
+																																
 			<?php }	?>
 		</tbody>
 	</table>
