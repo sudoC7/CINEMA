@@ -10,9 +10,12 @@
          */
 
         public function listRoleperso() {
-            $pdoRolePerso = Connect::seConnecter();
 
-            $requeteRolePerso = $pdoRolePerso->query("SELECT * FROM jouerole");
+            $rocketRole = "SELECT nomPerso FROM roleperso";
+
+            $pdoRolePerso = Connect::seConnecter();
+            $requeteRolePerso = $pdoRolePerso->query($rocketRole);
+            
             require "view/listFilms.php";
         }
 
