@@ -11,7 +11,7 @@
 
         public function listFilms() {
 
-            $rocketFilm = "SELECT titre, anneeSortie FROM film ORDER BY anneeSortie DESC";
+            $rocketFilm = "SELECT id_film, titre, anneeSortie FROM film ORDER BY anneeSortie DESC";
 
             $pdoFilms = Connect::seConnecter();
             $requeteFilms = $pdoFilms->query($rocketFilm);
