@@ -10,7 +10,7 @@ spl_autoload_register(function($class_name){
     include $class_name . '.php';
 });
 
-$id = (isset($_GET["id"])) ? $_GET("id") : null;
+//$id = (isset($_GET["id"])) ? $_GET("id") : null;
 
 $ctrlFilm = new FilmController();
 $ctrlActeur = new ActeurController();
