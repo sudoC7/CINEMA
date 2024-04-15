@@ -3,7 +3,7 @@
     namespace Controller;
     use Model\Connect;
 
-    class ActeurController   
+    class ActeurController {  
         /**
          * Lister les Acteurs 
         */
@@ -22,7 +22,7 @@
         // Afficher les détails d'un acteur 
         public function detailsActeur() {}
         
-        // Ajouter un acteur 
+        // Ajouter un Acteur 
         public function ajoutActeur() {}
 
         // Supprimer un Acteur 
