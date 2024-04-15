@@ -20,11 +20,11 @@
         }
 
 
-        //Détails d'un film 
+        //Détails d'un Film 
         
         public function detailsFilm() {}
 
-        //Ajout d'un film 
+        //Ajouter un Film 
 
         public function ajoutFilm() {}
 

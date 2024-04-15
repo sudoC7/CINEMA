@@ -6,7 +6,7 @@
     class RealisateurController {
 
         /**
-         * Lister les Réalisateurs  
+         * Lister les Réalisateurs
          */
 
         public function listRealisateurs() {
@@ -19,7 +19,7 @@
         }
 
 
-        //Afficher les réalisateurs 
+        // ??? details d'un réalisateur ??? 
         public function afficheRealisateur() {}
 
         //Ajouter un réalisateur 
