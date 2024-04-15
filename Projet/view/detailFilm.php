@@ -5,6 +5,7 @@
     $title = "Détails d'un film";
 ?>
 
+<!-- Ici nous allons afficher le detail d'un film ( titre acteur reéalisateur role synopsis etc...)-->
 
 
 
