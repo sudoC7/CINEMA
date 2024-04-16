@@ -18,18 +18,18 @@
             
             require "view/role/listroleperso.php";
         }
-
-
-        //Details des RolePersos
-        public function afficherRolePerso() {}
         
-    
+        
+        //Details des RolePersos
+        public function detailRolePerso() {}
+        
+        
         //Ajouter un RolePerso
         public function ajouterRolePerso() {}
         
         
         //Suprimer un RolePerso
         public function supprimRolePerso() {}
-
+        
     }
-?>
+    ?>
