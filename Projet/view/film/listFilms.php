@@ -22,7 +22,7 @@
 			<?php foreach ($requeteFilms->fetchAll() as $film) { ?>
 
 				<tr>	<!-- ajout de liens pour detailFilm.php ... -->
-					<td><a href="index.php?id=<?= $film["id_film"]; ?>"><?= $film["titre"] ?></a></td>
+					<td><a href="index.php?action=detailFilm&id=<?= $film["id_film"]; ?>"><?= $film["titre"] ?></a></td>
 					<td><?= $film["anneeSortie"] ?></td>
 				</tr>
 																																
@@ -33,5 +33,5 @@
 
 <?php	
 	$content = ob_get_clean();
-	require_once "template.php";
+	require_once "view/template.php";
 ?>
