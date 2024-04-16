@@ -16,14 +16,14 @@
             $pdoRolePerso = Connect::seConnecter();
             $requeteRolePerso = $pdoRolePerso->query($rocketRole);
             
-            require "view/listFilms.php";
+            require "view/role/listroleperso.php";
         }
 
 
         //Details des RolePersos
         public function afficherRolePerso() {}
         
-        //Afficher ???
+    
         //Ajouter un RolePerso
         public function ajouterRolePerso() {}
         
