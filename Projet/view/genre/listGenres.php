@@ -29,5 +29,5 @@
 
 <?php	
 	$content = ob_get_clean();
-	require_once "template.php";
+	require_once "view/template.php";
 ?>
