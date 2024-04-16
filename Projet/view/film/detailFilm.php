@@ -26,23 +26,22 @@
 		<tbody>
 
 			<!-- Affiche tous les films du tableau  -->
-			<?php foreach ($requeteActeurs->fetch() as $acteur) { ?>
+			<?php foreach ($requeteFilm as $film) { ?>
 				<tr>
-					<td><?= $acteur["titre"] ?></td>
-					<td><?= $acteur["resumeFilm"] ?></td>
-					<td><?= $acteur["noteFilm"] ?></td>
-					<td><?= $acteur["duree"] ?></td>
-					<td><?= $acteur["anneeSortie"] ?></td>
-					<td><?= $acteur["realisateur"] ?></td>
-					<td><?= $acteur["acteur"] ?></td>
-					<td><?= $acteur["roleActeur"] ?></td>
+					<td><?= $film["titre"] ?></td>
+					<td><?= $film["resumeFilm"] ?></td>
+					<td><?= $film["noteFilm"] ?></td>
+					<td><?= $film["duree"] ?></td>
+					<td><?= $film["anneeSortie"] ?></td>
+					<td><?= $film["realisateur"] ?></td>
+					<td><?= $film["acteur"] ?></td>
+					<td><?= $film["roleActeur"] ?></td>
 				</tr>
 			<?php }	?>
 		</tbody>
 	</table>
 
-
 <?php	
 	$content = ob_get_clean();
-	require_once "template.php";
+	require_once "view/template.php";
 ?>
