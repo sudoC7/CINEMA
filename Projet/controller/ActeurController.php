@@ -15,7 +15,7 @@
             $pdoActeurs = Connect::seConnecter();
             $requeteActeurs = $pdoActeurs->query($rocketActeurs);
            
-            require "view/listActeurs.php";
+            require "view/acteur/listActeurs.php";
         }
 
 

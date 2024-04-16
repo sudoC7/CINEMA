@@ -16,7 +16,7 @@
             $pdoFilms = Connect::seConnecter();
             $requeteFilms = $pdoFilms->query($rocketFilm);
 
-            require "view/listFilms.php";
+            require "view/film/listFilms.php";
         }
 
 

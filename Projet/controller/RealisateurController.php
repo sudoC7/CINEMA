@@ -15,7 +15,7 @@
             
             $pdoRealisateurs = Connect::seConnecter();
             $requeteRealisateurs = $pdoRealisateurs->query($rocketReal);
-            require "view/listRealisateurs.php";
+            require "view/realisateur/listRealisateurs.php";
         }
 
 

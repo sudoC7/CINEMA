@@ -15,7 +15,7 @@
         
             $pdoGenres = Connect::seConnecter();
             $requeteGenres = $pdoGenres->query($rocketGenres);
-            require "view/listGenres.php";
+            require "view/genre/listGenres.php";
         }
 
 
