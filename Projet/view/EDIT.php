@@ -3,6 +3,8 @@
 	ob_start();
 
     $title = "Ajout de film";
+
+	//Dans cette page nous allons pouvoir ajouter et supprimer les films 
 ?>
 
 
