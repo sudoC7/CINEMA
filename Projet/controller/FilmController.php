@@ -22,7 +22,7 @@
 
         //Détails d'un Film 
         
-        public function detailsFilm() {
+       /* public function detailsFilm() {
 
             if(isset($_GET[$id])) {
 		
@@ -40,7 +40,7 @@
         
 
 
-        }
+        }*/
 
         //Ajouter un Film 
 
