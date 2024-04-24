@@ -35,7 +35,7 @@
                 $pdoDetailRealisateur = $pdoRealisateur1->prepare($rocketRealisateur);
                 $pdoDetailRealisateur->execute(["id" => $id]);
                 $requeteRealisateur = $pdoDetailRealisateur->fetch();
-    
+
 
                 // Affiche le detail d'un réalisateur
 
@@ -46,7 +46,7 @@
 
                 $pdoDetailRealisateur1 = $pdoRealisateur1->prepare($rocketRealisateur1);
                 $pdoDetailRealisateur1->execute(["id" => $id]);
-                $requeteDetailRealisateur = $pdoDetailRealisateur1->fetch();
+                $requeteDetailRealisateur = $pdoDetailRealisateur1->fetchAll();
 
 
             } else {
