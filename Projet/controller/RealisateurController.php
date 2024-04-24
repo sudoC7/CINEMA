@@ -11,7 +11,7 @@
 
         public function listRealisateurs() {
             
-            $rocketReal = "SELECT CONCAT(nomReal, ' ', prenomReal) AS Realisateur , dateNaissanceReal FROM realisateur";
+            $rocketReal = "SELECT id_realisateur ,CONCAT(nomReal, ' ', prenomReal) AS Realisateur , dateNaissanceReal FROM realisateur";
             
             $pdoRealisateurs = Connect::seConnecter();
             $requeteRealisateurs = $pdoRealisateurs->query($rocketReal);
@@ -19,8 +19,42 @@
         }
 
 
-        // ??? details d'un réalisateur ??? 
-        public function afficheRealisateur() {}
+        // ??? detail d'un réalisateur ??? 
+        public function detailRealisateur($id) {
+
+            if(isset($_GET['id'])) {
+
+                $pdoRealisateur1 = Connect::seConnecter();
+                $pdoRealisateur = Connect::seConnecter();
+    
+                // Affiche un realisateur en particulier 
+                $rocketRealisateur = "SELECT id_realisateur, CONCAT(nomReal, ' ', prenomReal) AS Realisateur 
+                FROM realisateur 
+                WHERE id_realisateur = :id";
+    
+                $pdoDetailRealisateur = $pdoRealisateur1->prepare($rocketRealisateur);
+                $pdoDetailRealisateur->execute(["id" => $id]);
+                $requeteRealisateur = $pdoDetailRealisateur->fetch();
+    
+
+                // Affiche le detail d'un réalisateur
+
+                $rocketRealisateur1 = "SELECT realisateur.id_realisateur, titre, anneeSortie
+                FROM film 
+                INNER JOIN realisateur ON realisateur.id_realisateur = film.id_realisateur
+                WHERE realisateur.id_realisateur = :id";
+
+                $pdoDetailRealisateur1 = $pdoRealisateur1->prepare($rocketRealisateur1);
+                $pdoDetailRealisateur1->execute(["id" => $id]);
+                $requeteDetailRealisateur = $pdoDetailRealisateur1->fetch();
+
+
+            } else {
+                echo "Pas de contenu\n";
+            }
+
+            require "view/realisateur/detailRealisateur.php";
+        }
 
         //Ajouter un réalisateur 
         public function ajoutRealisateur() {}
