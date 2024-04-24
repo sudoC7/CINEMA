@@ -20,7 +20,7 @@
 			<!-- Affiche tous les réalisateurs du tableau -->
 			<?php foreach ($requeteRolePerso->fetchAll() as $perso) { ?>
 				<tr>
-					<td><a href=""><?= $perso["nomPerso"] ?></a></td>
+					<td><a href="index.php?action=detailRoleperso&id=<?= $perso["id_roleperso"] ?>"><?= $perso["nomPerso"] ?></a></td>
 				</tr>
 			<?php }	?>
 		</tbody>
