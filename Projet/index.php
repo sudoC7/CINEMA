@@ -54,3 +54,4 @@ if(isset($_GET["action"])) {
         case "detailRoleperso" : $ctrlRoleperso->detailRolePerso($id); break;
     }
 }
+
