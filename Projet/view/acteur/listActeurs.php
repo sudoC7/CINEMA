@@ -21,7 +21,7 @@
 			<!-- Affiche tous les acteurs du tableau  -->
 			<?php foreach ($requeteActeurs->fetchAll() as $acteur) { ?>
 				<tr>
-					<td><a href="index.php?action=detailActeur&id=<?= $acteur["id_acteur"] ?>"><?= $acteur["Acteur"] ?></a></td>
+					<td><a href="index.php?action=detailActeur&id=<?= $acteur["id_acteur"]; ?>"><?= $acteur["Acteur"] ?></a></td>
 					<td><?= $acteur["sexe"] ?></td>
 				</tr>
 			<?php } ?>
