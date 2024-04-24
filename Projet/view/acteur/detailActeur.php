@@ -6,36 +6,26 @@
 ?>
 
 
-<h2>DETAILS DU film </h2>
+<h2>DETAIL de l'ACTEUR  : <?= $requeteActeur1["Acteur"] ?></h2>
 
     <table>
 		<thead>
 			<tr>
-				<th>TITRE</th>
-				<th>SYNOPSIS</th>
-				<th>NOTE</th>
-				<th>DUREE</th>
-				<th>anneeSortie</th>
-				<th>REALISATEUR</th>
-				<th>ACTEUR</th>
-				<th>ROLE</th>
+				<th>FILM</th>
+				<th>ROLE PERSONNAGE</th>
+				<th>ANNEE DE SORTIE </th>
 			</tr>
 		</thead>
 		<tbody>
-
-			<!-- Affiche tous les films du tableau  -->
-			<?php foreach ($requeteFilm as $film) { ?>
-				<tr>
-					<td><?= $film["titre"] ?></td>
-					<td><?= $film["resumeFilm"] ?></td>
-					<td><?= $film["noteFilm"] ?></td>
-					<td><?= $film["duree"] ?></td>
-					<td><?= $film["anneeSortie"] ?></td>
-					<td><?= $film["realisateur"] ?></td>
-					<td><?= $film["acteur"] ?></td>
-					<td><?= $film["roleActeur"] ?></td>
-				</tr>
-			<?php }	?>
+                <tr>
+			<!-- Affiche tous les films du tableau -->
+                <?php foreach ($requeteActeur as $acteur1) { ?>
+                    <!-- mettre le lien pour être dirigé vers le detailFilm.php ???? ???? ???? ???? -->
+                    <td><?= $acteur1["titre"] ?></td>
+                    <td><?= $acteur1["nomPerso"] ?></td>
+                    <td><?= $acteur1["anneeSortie"] ?></td>
+                </tr>
+		        <?php }	?>
 		</tbody>
 	</table>
 
