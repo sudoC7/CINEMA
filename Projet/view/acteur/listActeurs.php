@@ -13,25 +13,23 @@
 	<table>
 		<thead>
 			<tr>
-				<th>Nom</th>
-				<th>Prenom</th>
+				<th>Acteur</th>
 				<th>Sexe</th>
 			</tr>
 		</thead>
 		<tbody>
-			<!-- Affiche tous les films du tableau  -->
+			<!-- Affiche tous les acteurs du tableau  -->
 			<?php foreach ($requeteActeurs->fetchAll() as $acteur) { ?>
 				<tr>
-					<td><?= $acteur["nom"] ?></td>
-					<td><?= $acteur["prenom"] ?></td>
+					<td><a href="index.php?action=detailActeur&id=<?= $acteur["id_acteur"] ?>"><?= $acteur["Acteur"] ?></a></td>
 					<td><?= $acteur["sexe"] ?></td>
 				</tr>
-			<?php }	?>
+			<?php } ?>
 		</tbody>
 	</table>
 
 
 <?php	
 	$content = ob_get_clean();
-	require_once "template.php";
+	require_once "view/template.php";
 ?>
