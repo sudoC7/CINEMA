@@ -7,7 +7,7 @@
 
 <!-- Ici nous allons afficher le detail d'un film ( titre acteur reéalisateur role synopsis etc...)-->
 
-<h2>DETAILS DU <?=  ?> </h2>
+<h2>DETAILS DU film </h2>
 	<!-- Compte le nombre de realisateurs  -->
 
 	<table>
