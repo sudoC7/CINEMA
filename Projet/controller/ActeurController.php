@@ -10,7 +10,7 @@
 
         public function listActeurs() {
 
-            $rocketActeurs = "SELECT CONCAT(nom, ' ' , prenom) AS Acteur, sexe FROM acteur";
+            $rocketActeurs = "SELECT id_acteur, CONCAT(nom, ' ' , prenom) AS Acteur, sexe FROM acteur";
 
             $pdoActeurs = Connect::seConnecter();
             $requeteActeurs = $pdoActeurs->query($rocketActeurs);
@@ -28,16 +28,15 @@
 
                 $rocketDetailActeur = "";
 
-                $pdoDetailActeur = $pdoFilm->prepare($rocketDetailActeur);
+                $pdoDetailActeur = $pdoActeur->prepare($rocketDetailActeur);
                 $pdoDetailActeur->execute(["id" => $id]);
-                $requeteFilm = $pdoDetailActeur->fetchAll();
+                $requeteActeur = $pdoDetailActeur->fetchAll();
 
             } else {
                 echo "Pas de contenu\n";
             }
 
             require "view/acteur/listActeurs.php";
-
         }
         
         // Ajouter un Acteur 
