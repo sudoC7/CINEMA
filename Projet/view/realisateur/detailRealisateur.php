@@ -17,9 +17,9 @@
 		</thead>
 		<tbody>
 			<!-- Affiche tous les réalisateurs du tableau -->
-			<?php foreach ($requeteDetailRealisateur->fetchAll() as $realisateur) { ?>
+			<?php foreach ($requeteDetailRealisateur as $realisateur) { ?>
 				<tr>
-					<td><a href=""><?= $realisateur["Realisateur"] ?></a></td>
+					<td><a href=""><?= $realisateur["titre"] ?></a></td>
 					<td><?= $realisateur["anneeSortie"] ?></td>
 				</tr>
 			<?php }	?>
