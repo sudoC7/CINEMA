@@ -13,8 +13,7 @@
 	<table>
 		<thead>
 			<tr>
-				<th>Nom</th>
-				<th>Prenom</th>
+				<th>Realisateur</th>
 				<th>Date Naissance</th>
 			</tr>
 		</thead>
@@ -22,8 +21,7 @@
 			<!-- Affiche tous les réalisateurs du tableau -->
 			<?php foreach ($requeteRealisateurs->fetchAll() as $realisateur) { ?>
 				<tr>
-					<td><?= $realisateur["nomReal"] ?></td>
-					<td><?= $realisateur["prenomReal"] ?></td>
+					<td><a href=""><?= $realisateur["Realisateur"] ?></a></td>
 					<td><?= $realisateur["dateNaissanceReal"] ?></td>
 				</tr>
 			<?php }	?>

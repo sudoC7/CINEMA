@@ -11,7 +11,7 @@
 
         public function listRealisateurs() {
             
-            $rocketReal = "SELECT nomReal, prenomReal, dateNaissanceReal FROM realisateur";
+            $rocketReal = "SELECT CONCAT(nomReal, ' ', prenomReal) AS Realisateur , dateNaissanceReal FROM realisateur";
             
             $pdoRealisateurs = Connect::seConnecter();
             $requeteRealisateurs = $pdoRealisateurs->query($rocketReal);
