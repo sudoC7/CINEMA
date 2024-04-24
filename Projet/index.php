@@ -49,8 +49,8 @@ if(isset($_GET["action"])) {
 
 
         //===Role Personnage
-        case "listRoleperso" : $ctrlRoleperso->listRoleperso();
+        case "listRoleperso" : $ctrlRoleperso->listRoleperso(); break;
         // detail de role perso
-        case "detailRoleperso" : $ctrlRoleperso->detailRolePerso($id);
+        case "detailRoleperso" : $ctrlRoleperso->detailRolePerso($id); break;
     }
 }
