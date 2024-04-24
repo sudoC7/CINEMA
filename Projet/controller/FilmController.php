@@ -23,8 +23,8 @@
         
         public function detailFilm($id) {
 
-            $pdoFilm = Connect::seConnecter();
             $pdoFilm1 = Connect::seConnecter();
+            $pdoFilm = Connect::seConnecter();
 
             if(isset($_GET['id'])) {
 
