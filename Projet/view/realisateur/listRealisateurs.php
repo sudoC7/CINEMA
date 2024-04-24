@@ -21,7 +21,7 @@
 			<!-- Affiche tous les réalisateurs du tableau -->
 			<?php foreach ($requeteRealisateurs->fetchAll() as $realisateur) { ?>
 				<tr>
-					<td><a href="index.php?action=detailRealisateur?id=<?= $realisateur['id_realisateur'] ?>"><?= $realisateur["Realisateur"] ?></a></td>
+					<td><a href="index.php?action=detailRealisateur&id=<?= $realisateur['id_realisateur'] ?>"><?= $realisateur["Realisateur"] ?></a></td>
 					<td><?= $realisateur["dateNaissanceReal"] ?></td>
 				</tr>
 			<?php }	?>
