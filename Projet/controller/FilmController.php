@@ -24,10 +24,22 @@
         public function detailFilm($id) {
 
             $pdoFilm = Connect::seConnecter();
+            $pdoFilm1 = Connect::seConnecter();
 
             if(isset($_GET['id'])) {
 
-                $rocketDetailsFilm = "SELECT titre, resumeFilm, noteFilm, duree, anneeSortie, CONCAT(realisateur.nomReal, ' ', realisateur.prenomReal) AS realisateur, CONCAT(acteur.nom, ' ', acteur.prenom) AS acteur, nomPerso AS roleActeur 
+                // affiche un film en particulier 
+                $rocketDetailsFilm1 = "SELECT titre, resumeFilm, noteFilm, duree, anneeSortie, CONCAT(realisateur.nomReal, ' ', realisateur.prenomReal) AS Realisateur
+                FROM film
+                INNER JOIN realisateur ON realisateur.id_realisateur = film.id_realisateur
+                WHERE film.id_film = :id";
+
+                $pdoDetailsFilm1 = $pdoFilm1->prepare($rocketDetailsFilm1);
+                $pdoDetailsFilm1->execute(["id" => $id]);
+                $requeteFilmtitre = $pdoDetailsFilm1->fetch();
+
+                // affiche le detail du film en particulier 
+                $rocketDetailsFilm = "SELECT CONCAT(realisateur.nomReal, ' ', realisateur.prenomReal) AS realisateur, CONCAT(acteur.nom, ' ', acteur.prenom) AS acteur, nomPerso AS roleActeur 
                 FROM acteur  	
                 INNER JOIN jouerole ON acteur.id_acteur = jouerole.id_acteur  
                 INNER JOIN roleperso ON jouerole.id_role_personnage = roleperso.id_roleperso  
@@ -38,7 +50,7 @@
                 $pdoDetailsFilm = $pdoFilm->prepare($rocketDetailsFilm);
                 $pdoDetailsFilm->execute(["id" => $id]);
                 $requeteFilm = $pdoDetailsFilm->fetchAll();
-                
+
             } else {
                 echo "Pas de contenu\n";
             }
@@ -46,8 +58,6 @@
             require "view/film/detailFilm.php";
             
             // $requeteFilm = $pdo->prepare("SELECT * FROM film WHERE id_film = :id"); $requeteFilm->execute(["id"=> $id]) 
-          
-                    
         }
         
 
