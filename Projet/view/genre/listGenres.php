@@ -20,7 +20,7 @@
 			<!-- Affiche tous les genres du tableau  -->
 			<?php foreach ($requeteGenres->fetchAll() as $genre) { ?>
 				<tr>
-					<td><a href=""><?= $genre["genreFilm"] ?></a></td>
+					<td><a href="index.php?action=detailGenre&id=<?= $genre["id_genre"] ?>"><?= $genre["genreFilm"] ?></a></td>
 				</tr>
 			<?php }	?>
 		</tbody>
