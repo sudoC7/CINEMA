@@ -9,11 +9,16 @@
 
 <h2>DETAILS DU film : <?= $requeteFilmtitre["titre"] ?> </h2>
 	<!-- Compte le nombre de realisateurs  -->
+	<p><b>SYNOPSIS :</b></p>
 	<p><?= $requeteFilmtitre["resumeFilm"] ?></p>
+	<p><b>NOTE :</b></p>
 	<p><?= $requeteFilmtitre["noteFilm"] ?></p>
-	<p><?= $requeteFilmtitre["duree"] ?></p>
+	<p><b>DUREE :</b></p>
+	<p><?= $requeteFilmtitre["duree"] ?> (min)</p>
+	<p><b>ANNEE SORTIE :</b></p>
 	<p><?= $requeteFilmtitre["anneeSortie"] ?></p>
-	<p><?= $requeteFilmtitre["Realisateur"] ?></p>
+	<p><b>REALISATEUR :</b></p>
+	<p><a href=""><?= $requeteFilmtitre["Realisateur"] ?></a></p>
 
 	<table>
 		<thead>
@@ -26,8 +31,8 @@
 			<!-- Affiche tous les films du tableau  -->
 			<?php foreach ($requeteFilm as $film) { ?>
 					<tr>
-					<td><?= $film["acteur"] ?></td>
-					<td><?= $film["roleActeur"] ?></td>
+					<td><a href=""><?= $film["acteur"] ?></a></td>
+					<td><a href=""><?= $film["roleActeur"] ?></a></td>
 				</tr>
 			<?php }	?>
 		</tbody>
