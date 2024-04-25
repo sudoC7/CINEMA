@@ -24,6 +24,7 @@
 				<tr>	<!-- ajout de liens pour detailFilm.php ... -->
 					<td><a href="index.php?action=detailFilm&id=<?= $film["id_film"]; ?>"><?= $film["titre"] ?></a></td>
 					<td><?= $film["anneeSortie"] ?></td>
+					<td><a href="index...."><input type="submit" name="submit" value="DELL"></a></td>
 				</tr>
 																																
 			<?php }	?>
