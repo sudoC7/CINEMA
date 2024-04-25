@@ -63,7 +63,7 @@
         public function ajoutActeur() {}
 
         // Supprimer un Acteur 
-        public function supprimActeur() {}
+        public function supprimActeur($id) {}
 
     }
 ?>

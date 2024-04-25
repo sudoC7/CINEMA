@@ -60,7 +60,7 @@
         public function ajoutRealisateur() {}
 
         //Supprimer un réalisateur 
-        public function spprimRealisateur() {}
+        public function suppRealisateur($id) {}
 
     }
 

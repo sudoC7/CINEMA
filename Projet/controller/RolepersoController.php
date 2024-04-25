@@ -68,7 +68,7 @@
         
         
         //Suprimer un RolePerso
-        public function supprimRolePerso() {}
+        public function suppRolePerso($id) {}
         
     }
     ?>
