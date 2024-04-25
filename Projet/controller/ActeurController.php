@@ -63,7 +63,28 @@
         public function ajoutActeur() {}
 
         // Supprimer un Acteur 
-        public function supprimActeur($id) {}
+        public function supprimActeur($id) {
+
+            $pdoActeur = Connect::seConnecter();
+
+            if(isset($_GET['id'])) {
+            
+                // En premier supprimer du tableau "jouerole"
+                $rocket1 = "DELETE FROM jouerole WHERE id_acteur = :id";
+                $rocketActeur1 = $pdoActeur->prepare($rocket1);
+                $rocketActeur1->execute(["id" => $id]);
+
+                // Ensuite supprimer du tableau "acteur"
+                $rocket2 = "DELETE FROM acteur WHERE id_acteur = :id";
+                $rocketActeur2 = $pdoActeur->prepare($rocket2);
+                $rocketActeur2->execute(["id" => $id]);
+
+            } else {
+                echo "Erreur de suppression\n";
+            }
+
+            header("Location: index.php?action=listActeurs");
+        }
 
     }
 ?>
