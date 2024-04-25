@@ -23,6 +23,7 @@
 				<tr>
 					<td><a href="index.php?action=detailActeur&id=<?= $acteur["id_acteur"]; ?>"><?= $acteur["Acteur"] ?></a></td>
 					<td><?= $acteur["sexe"] ?></td>
+					<td><a href="index.php?action=suppActeur&id=<?= $acteur["id_acteur"]; ?>"><input type="submit" name="submit" value="Dell"></a></td>
 				</tr>
 			<?php } ?>
 		</tbody>
