@@ -41,14 +41,14 @@
                 $requeteRP = $pdoDetailRolePerso->fetch();
                     
     
-                //Afficher les films et l'acteur du Personnage 
+                //Afficher les films et l'acteur du Personnage  
     
                 $roqueteRolePersoFilms = " SELECT film.titre, CONCAT(acteur.nom, ' ', acteur.prenom) AS Acteur
                 FROM acteur
                 INNER JOIN jouerole ON acteur.id_acteur = jouerole.id_acteur
                 INNER JOIN roleperso ON jouerole.id_role_personnage = roleperso.id_roleperso
                 INNER JOIN film ON film.id_film = jouerole.id_film
-                WHERE jouerole.id_acteur = :id"; 
+                WHERE jouerole.id_role_personnage = :id"; 
 
                 $pdoDetailRolePersoFilms = $pdoRP->prepare($roqueteRolePersoFilms);
                 $pdoDetailRolePersoFilms->execute(["id" => $id]);
