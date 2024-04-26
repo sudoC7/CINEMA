@@ -66,5 +66,7 @@ if(isset($_GET["action"])) {
 
 
     }
+    
+} else {
+    $ctrlCinema->listFilms();
 }
-
