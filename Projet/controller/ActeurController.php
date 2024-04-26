@@ -63,7 +63,7 @@
         public function ajoutActeur() {}
 
         // Supprimer un Acteur 
-        public function supprimActeur($id) {
+        public function suppActeur($id) {
 
             $pdoActeur = Connect::seConnecter();
 
@@ -82,7 +82,7 @@
             } else {
                 echo "Erreur de suppression\n";
             }
-
+            
             header("Location: index.php?action=listActeurs");
         }
 

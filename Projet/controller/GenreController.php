@@ -59,7 +59,7 @@
         public function ajoutGenre() {}
 
         // Supprimer un genre
-        public function supprimGenre($id) {}
+        public function suppGenre($id) {}
 
 
     }

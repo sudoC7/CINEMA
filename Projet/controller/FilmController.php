@@ -71,7 +71,7 @@
 
         //Supprimer un film 
 
-        public function supprimFilm($id) {}
+        public function suppFilm($id) {}
 
 
     }
