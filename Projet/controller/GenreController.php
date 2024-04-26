@@ -59,7 +59,28 @@
         public function ajoutGenre() {}
 
         // Supprimer un genre
-        public function suppGenre($id) {}
+        public function suppGenre($id) {
+
+            $pdoGenre = Connect::seConnecter();
+
+            if(isset($_GET['id'])){
+                
+                //En premier on le supprime du tableau categorie
+                $rocket1 = "DELETE FROM categorie WHERE id_genre = :id";
+                $rocketGenre1 = $pdoGenre->prepare($rocket1);
+                $rocketGenre1->execute(['id'=>$id]);
+                
+                //Ensuite du tableau genre
+                $rocket2 = "DELETE FROM genre WHERE id_genre = :id";
+                $rocketGenre2 = $pdoGenre->prepare($rocket2);
+                $rocketGenre2->execute(['id'=>$id]);
+                
+            }else {
+                echo "Erreur de suppression\n";
+            }
+
+            header("Location: index.php?action=listGenres");
+        }
 
 
     }
