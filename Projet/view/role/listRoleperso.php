@@ -21,6 +21,7 @@
 			<?php foreach ($requeteRolePerso->fetchAll() as $perso) { ?>
 				<tr>
 					<td><a href="index.php?action=detailRoleperso&id=<?= $perso["id_roleperso"] ?>"><?= $perso["nomPerso"] ?></a></td>
+					<td><a href="index.php?action=suppRoleperso&id=<?= $perso["id_roleperso"] ?>"><input type="submit" name="submit" value="DELL"></a></td>
 				</tr>
 			<?php }	?>
 		</tbody>
