@@ -60,7 +60,23 @@
         public function ajoutRealisateur() {}
 
         //Supprimer un réalisateur 
-        public function suppRealisateur($id) {}
+        public function suppRealisateur($id) {
+            
+            $pdoRealisateur = Connect::seConnecter();
+
+            if(isset($_GET['id'])){
+
+                //On supprime le realisateur du tableau realisateur
+                $rocket1 = "DELETE FROM realisateur WHERE id_realisateur = :id";
+                $rocketRealisateur1 = $pdoRealisateur->prepare($rocket1);
+                $rocketRealisateur1->execute(['id' => $id]);
+
+            } else {
+                echo "Erreur de suppression\n";
+            }
+
+            header("Location: index.php?action=listRealisateurs");
+        }
 
     }
 
