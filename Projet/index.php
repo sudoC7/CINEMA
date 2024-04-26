@@ -22,7 +22,7 @@ $ctrlRoleperso = new RolepersoController();
 
 if(isset($_GET["action"])) {
     
-    switch ($_GET["action"]) {
+    switch ($_GET["action"]) { 
 
         //==== FILMS ====//
         case "listFilms" : $ctrlFilm->listFilms(); break; 
