@@ -23,6 +23,7 @@
 				<tr>
 					<td><a href="index.php?action=detailRealisateur&id=<?= $realisateur['id_realisateur'] ?>"><?= $realisateur["Realisateur"] ?></a></td>
 					<td><?= $realisateur["dateNaissanceReal"] ?></td>
+					<td><a href="index.php?action=suppRealisateur&id=<?= $realisateur['id_realisateur'] ?>"><input type="submit" name="submit" value="DELL"></a></td>
 				</tr>
 			<?php }	?>
 		</tbody>
