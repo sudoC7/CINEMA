@@ -92,12 +92,12 @@
                 $rocketFilm3 = $pdoFilm->prepare($rocket3);
                 $rocketFilm3->execute(['id' => $id]);
                 
-                header("Location : index.php?action=listFilms");
-
+                
             } else {
                 echo "Erreur de suppression\n";
             }
-
+            
+            header("Location: index.php?action=listFilms");
         }
 
 
