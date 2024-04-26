@@ -71,7 +71,34 @@
 
         //Supprimer un film 
 
-        public function suppFilm($id) {}
+        public function suppFilm($id) {
+
+            $pdoFilm = Connect::seConnecter();
+
+            if(isset($_GET['id'])) {
+
+                // On supprime du tableau jouerole en premier 
+                $rocket1 = "DELETE FROM jouerole WHERE id_film = :id";
+                $rocketFilm1 = $pdoFilm->prepare($rocket1);
+                $rocketFilm1->execute(['id' => $id]);
+
+                // Ensuite on supprime du tableau categorie 
+                $rocket2 = "DELETE FROM categorie WHERE id_film = :id";
+                $rocketFilm2 = $pdoFilm->prepare($rocket2);
+                $rocketFilm2->execute(['id' => $id]);
+
+                // Et en dernier on supprime du tableau film 
+                $rocket3 = "DELETE FROM film WHERE id_film = :id";
+                $rocketFilm3 = $pdoFilm->prepare($rocket3);
+                $rocketFilm3->execute(['id' => $id]);
+                
+                header("Location : index.php?action=listFilms");
+
+            } else {
+                echo "Erreur de suppression\n";
+            }
+
+        }
 
 
     }
