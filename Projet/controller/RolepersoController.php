@@ -68,7 +68,29 @@
         
         
         //Suprimer un RolePerso
-        public function suppRolePerso($id) {}
+        public function suppRolePerso($id) {
+
+            $pdoRoleperso = Connect::seConnecter();
+
+            if(isset($_GET['id'])){
+
+                //On supprime le role personnage du tableau jouerole
+                $rocket1 = "DELETE FROM jouerole WHERE id_role_personnage = :id";
+                $pdoRoleperso1 = $pdoRoleperso->prepare($rocket1);
+                $pdoRoleperso1->execute(['id' => $id]);
+
+                //Ensuite du tableau role_personnage
+                $rocket2 = "DELETE FROM roleperso WHERE id_roleperso = :id";
+                $pdoRoleperso2 = $pdoRoleperso->prepare($rocket2);
+                $pdoRoleperso2->execute(['id' => $id]);
+
+            } else {
+                echo "Erreur de suppression\n";
+            }
+
+            header("Location: index.php?action=listRoleperso");
+
+        }
         
     }
     ?>
