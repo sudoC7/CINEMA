@@ -18,7 +18,7 @@
                 <li><a href="index.php?action=listActeurs">Acteurs</a></li>
                 <li><a href="index.php?action=listRealisateurs">Realisateurs</a></li>
                 <li><a href="index.php?action=listRoleperso">Rôle Personnage</a></li>
-                
+                <li><a href="index.php?action=editCinema">.</a></li> <!-- page dans le quel on pourra supprimer tout -->
             </ul>
         </nav>
 
