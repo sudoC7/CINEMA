@@ -5,7 +5,40 @@
     $title = "Ajout d'Acteur";
 ?>
 
-<p>AJOUT D'ACTEUR</p>
+     <!--     id_acteur, nom, prenom, sexe, dateNaissance, afficheActeur    -->
+     <form action="index.php***">
+        
+        <!--nom -->
+        <label for="">
+            <p></p>
+            <input type="text">
+        </label>
+        
+        <!--prenom -->
+        <label for="">
+            <p></p>
+            <input type="text">
+        </label>
+        
+        <!--sexe -->
+        <label for="">
+            <p></p>
+            <input type="text">
+        </label>
+        
+        <!--dateNaissance -->
+        <label for="">
+            <p></p>
+            <input type="text">
+        </label>
+        
+        <!--afficheActeur -->
+        <label for="">
+            <p></p>
+            <input type="text">
+        </label>
+        
+    </form>
 
 <?php	
 	$content = ob_get_clean();
