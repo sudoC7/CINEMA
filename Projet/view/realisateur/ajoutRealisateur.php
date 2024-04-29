@@ -6,6 +6,27 @@
 ?>
 
 
+    <!--     id_realisateur, nomReal, prenomReal, dateNaissanceReal, afficheReal   -->
+    <form action="index.php***">
+        
+        <label for="">
+            <p></p>
+            <input type="text">
+        </label>
+        <label for="">
+            <p></p>
+            <input type="text">
+        </label>
+        <label for="">
+            <p></p>
+            <input type="text">
+        </label>
+        <label for="">
+            <p></p>
+            <input type="text">
+        </label>
+        
+    </form>
 
 
 <?php	
