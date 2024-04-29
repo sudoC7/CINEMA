@@ -77,7 +77,7 @@
 
             header("Location: index.php?action=listEditCinema");
         }
-
+                    
     }
 
 ?>
