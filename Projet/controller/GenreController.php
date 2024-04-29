@@ -79,7 +79,7 @@
                 echo "Erreur de suppression\n";
             }
 
-            header("Location: index.php?action=listGenres");
+            header("Location: index.php?action=listEditCinema");
         }
 
 

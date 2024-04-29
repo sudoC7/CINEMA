@@ -88,7 +88,7 @@
                 echo "Erreur de suppression\n";
             }
 
-            header("Location: index.php?action=listRoleperso");
+            header("Location: index.php?action=listEditCinema");
 
         }
         

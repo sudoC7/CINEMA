@@ -83,7 +83,7 @@
                 echo "Erreur de suppression\n";
             }
             
-            header("Location: index.php?action=listActeurs");
+            header("Location: index.php?action=listEditCinema");
         }
 
     }

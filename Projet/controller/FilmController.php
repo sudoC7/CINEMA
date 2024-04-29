@@ -97,7 +97,7 @@
                 echo "Erreur de suppression\n";
             }
             
-            header("Location: index.php?action=listFilms");
+            header("Location: index.php?action=listEditCinema");
         }
 
 

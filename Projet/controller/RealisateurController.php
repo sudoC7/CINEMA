@@ -75,7 +75,7 @@
                 echo "Erreur de suppression\n";
             }
 
-            header("Location: index.php?action=listRealisateurs");
+            header("Location: index.php?action=listEditCinema");
         }
 
     }
