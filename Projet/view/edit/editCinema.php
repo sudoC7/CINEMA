@@ -7,8 +7,12 @@
 	//Dans cette page nous allons pouvoir ajouter et supprimer les films 
 ?>
 <div class="editTableau">
-		<!--TABLEAU FILM-->
+
+	<!--TABLEAU FILM-->
 	<div>
+		<div>
+			<a href="index.php?action=">AJOUT FILM</a>
+		</div>
 	 	<table>
 			<thead>
 				<tr>
@@ -20,6 +24,7 @@
 				<?php foreach ($requeteFilmsEdit->fetchAll() as $film) { ?>
 					<tr> 
 						<td><a href="index.php?action=detailFilm&id=<?= $film["id_film"]; ?>"><?= $film["titre"] ?></a></td>
+						<td><a href="index.php?action=suppFilm&id=<?= $film["id_film"];  ?>"><input type="submit" name="submit" value="DELL"></a></td>
 					</tr>
 				<?php } ?>
 			</tbody>
@@ -28,6 +33,9 @@
 	
 	<!--TABLEAU ACTEUR-->
 	<div>
+		<div>
+			<a href="index.php?action=">AJOUT ACTEUR</a>
+		</div>
 		<table>
 			<thead>
 				<tr>
@@ -38,13 +46,18 @@
 				<?php foreach ($requeteActeursEdit->fetchAll() as $acteur) { ?>
 					<tr>      
 						<td><a href="index.php?action=detailActeur&id=<?= $acteur["id_acteur"]; ?>"><?= $acteur["Acteur"] ?></a></td>
+						<td><a href="index.php?action=suppActeur&id=<?= $acteur["id_acteur"]; ?>"><input type="submit" name="submit" value="DELL"></a></td>
 					</tr>
 				<?php } ?>
 			</tbody>
 		</table>
 	</div>
+
 	<!--TABLEAU GENRE-->
 	<div>
+		<div>
+			<a href="index.php?action=">AJOUT GENRE</a>
+		</div>
 		<table>
 			<thead>
 				<tr>
@@ -55,14 +68,18 @@
 				<?php foreach ($requeteGenresEdit->fetchAll() as $genre) { ?>
 					<tr>
 						<td><a href="index.php?action=detailGenre&id=<?= $genre["id_genre"]; ?>"><?= $genre["genreFilm"] ?></a></td>
+						<td><a href="index.php?action=suppGenre&id=<?= $genre["id_genre"] ?>"><input type="submit" name="submit" value="DELL"></a></td>
 				    </tr>
 				<?php } ?>
 			</tbody>
 		</table>	
 	</div>
 
-		<!--TABLEAU REALISATEUR-->
+	<!--TABLEAU REALISATEUR-->
 	<div>
+		<div>
+			<a href="index.php?action=">AJOUT REALISATEUR</a>
+		</div>
 		<table>
 			<thead>
 				<tr>
@@ -73,6 +90,7 @@
 				<?php foreach ($requeteRealisateursEdit->fetchAll() as $realisateur) { ?>
 					<tr>
 						<td><a href="index.php?action=detailRealisateur&id=<?= $realisateur["id_realisateur"]; ?>"><?= $realisateur["Realisateur"] ?></a></td>
+						<td><a href="index.php?action=suppRealisateur&id=<?= $realisateur['id_realisateur'] ?>"><input type="submit" name="submit" value="DELL"></a></td>
 					</tr>
 				<?php } ?>
 			</tbody>
@@ -81,6 +99,9 @@
 		
 	<!--TABLEAU ROLE-->
 	<div>
+		<div>
+			<a href="index.php?action=">AJOUT ROLE</a>
+		</div>
 		<table>
 			<thead>
 				<tr>
@@ -91,6 +112,7 @@
 				<?php foreach ($requeteRolePersoEdit->fetchAll() as $roleperso) { ?>
 					<tr>
 						<td><a href="index.php?action=detailRoleperso&id=<?= $roleperso["id_roleperso"]; ?>"><?= $roleperso["nomPerso"] ?></a></td>
+						<td><a href="index.php?action=suppRoleperso&id=<?= $roleperso["id_roleperso"] ?>"><input type="submit" name="submit" value="DELL"></a></td>
 					</tr>
 				<?php } ?>
 			</tbody>
