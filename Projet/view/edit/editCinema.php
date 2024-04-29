@@ -8,40 +8,44 @@
 ?>
 <div class="editTableau">
 		<!--TABLEAU FILM-->
-	<table>
-		<thead>
-			<tr>
-				<th>FILMs</th>
-			</tr>
-		</thead>
-		<tbody>
-			<!-- Affiche tous les films du tableau  -->
-			<?php foreach ($requeteFilmsEdit->fetchAll() as $film) { ?>
-				<tr> 
-					<td><a href="index.php?action=detailFilm&id=<?= $film["id_film"]; ?>"><?= $film["titre"] ?></a></td>
+	<div>
+	 	<table>
+			<thead>
+				<tr>
+					<th>FILMs</th>
 				</tr>
-			<?php } ?>
-		</tbody>
-	</table>
+			</thead>
+			<tbody>
+				<!-- Affiche tous les films du tableau  -->
+				<?php foreach ($requeteFilmsEdit->fetchAll() as $film) { ?>
+					<tr> 
+						<td><a href="index.php?action=detailFilm&id=<?= $film["id_film"]; ?>"><?= $film["titre"] ?></a></td>
+					</tr>
+				<?php } ?>
+			</tbody>
+		</table>
+	</div>
 	
 	<!--TABLEAU ACTEUR-->
-	<table>
-		<thead>
-			<tr>
-				<th>ACTEURs</th>
-			</tr>
-		</thead>
-		<tbody>
-			<?php foreach ($requeteActeursEdit->fetchAll() as $acteur) { ?>
-				<tr>      
-					<td><a href="index.php?action=detailActeur&id=<?= $acteur["id_acteur"]; ?>"><?= $acteur["Acteur"] ?></a></td>
+	<div>
+		<table>
+			<thead>
+				<tr>
+					<th>ACTEURs</th>
 				</tr>
-			<?php } ?>
-		</tbody>
-	</table>
-	
-		<!--TABLEAU GENRE-->
-	<table>
+			</thead>
+			<tbody>
+				<?php foreach ($requeteActeursEdit->fetchAll() as $acteur) { ?>
+					<tr>      
+						<td><a href="index.php?action=detailActeur&id=<?= $acteur["id_acteur"]; ?>"><?= $acteur["Acteur"] ?></a></td>
+					</tr>
+				<?php } ?>
+			</tbody>
+		</table>
+	</div>
+	<!--TABLEAU GENRE-->
+	<div>
+		<table>
 			<thead>
 				<tr>
 					<th>GENREs</th>
@@ -54,39 +58,44 @@
 				    </tr>
 				<?php } ?>
 			</tbody>
-	</table>
-	
-	<!--TABLEAU REALISATEUR-->
-	<table>
-		<thead>
-			<tr>
-				<th>REALISATEURs</th>
-			</tr>
-		</thead>
-		<tbody>
-			<?php foreach ($requeteRealisateursEdit->fetchAll() as $realisateur) { ?>
-				<tr>
-					<td><a href="index.php?action=detailRealisateur&id=<?= $realisateur["id_realisateur"]; ?>"><?= $realisateur["Realisateur"] ?></a></td>
-				</tr>
-			<?php } ?>
-		</tbody>
-	</table>
+		</table>	
+	</div>
 
-	<!--TABLEAU ROLE-->
-	<table>
-		<thead>
-			<tr>
-				<th>ROLEs</th>
-			</tr>
-		</thead>
-		<tbody>
-			<?php foreach ($requeteRolePersoEdit->fetchAll() as $roleperso) { ?>
+		<!--TABLEAU REALISATEUR-->
+	<div>
+		<table>
+			<thead>
 				<tr>
-					<td><a href="index.php?action=detailRoleperso&id=<?= $roleperso["id_roleperso"]; ?>"><?= $roleperso["nomPerso"] ?></a></td>
+					<th>REALISATEURs</th>
 				</tr>
-			<?php } ?>
-		</tbody>
-	</table>
+			</thead>
+			<tbody>
+				<?php foreach ($requeteRealisateursEdit->fetchAll() as $realisateur) { ?>
+					<tr>
+						<td><a href="index.php?action=detailRealisateur&id=<?= $realisateur["id_realisateur"]; ?>"><?= $realisateur["Realisateur"] ?></a></td>
+					</tr>
+				<?php } ?>
+			</tbody>
+		</table>
+	</div>
+		
+	<!--TABLEAU ROLE-->
+	<div>
+		<table>
+			<thead>
+				<tr>
+					<th>ROLEs</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach ($requeteRolePersoEdit->fetchAll() as $roleperso) { ?>
+					<tr>
+						<td><a href="index.php?action=detailRoleperso&id=<?= $roleperso["id_roleperso"]; ?>"><?= $roleperso["nomPerso"] ?></a></td>
+					</tr>
+				<?php } ?>
+			</tbody>
+		</table>
+	</div>
 </div>
 
 	
