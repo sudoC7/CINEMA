@@ -16,7 +16,7 @@
 	 	<table>
 			<thead>
 				<tr>
-					<th>FILMs</th>
+					<th>FILM/s</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -34,12 +34,12 @@
 	<!--TABLEAU ACTEUR-->
 	<div>
 		<div>
-			<a href="index.php?action=">AJOUT ACTEUR</a>
+			<a href="view/acteur/ajoutActeur.php">AJOUT ACTEUR</a>
 		</div>
 		<table>
 			<thead>
 				<tr>
-					<th>ACTEURs</th>
+					<th>ACTEUR/s</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -56,12 +56,12 @@
 	<!--TABLEAU GENRE-->
 	<div>
 		<div>
-			<a href="index.php?action=">AJOUT GENRE</a>
+			<a href="view/genre/ajoutGenre.php">AJOUT GENRE</a>
 		</div>
 		<table>
 			<thead>
 				<tr>
-					<th>GENREs</th>
+					<th>GENRE/s</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -78,12 +78,12 @@
 	<!--TABLEAU REALISATEUR-->
 	<div>
 		<div>
-			<a href="index.php?action=">AJOUT REALISATEUR</a>
+			<a href="view/realisateur/ajoutRealisateur.php">AJOUT REALISATEUR</a>
 		</div>
 		<table>
 			<thead>
 				<tr>
-					<th>REALISATEURs</th>
+					<th>REALISATEUR/s</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -100,7 +100,7 @@
 	<!--TABLEAU ROLE-->
 	<div>
 		<div>
-			<a href="index.php?action=">AJOUT ROLE</a>
+			<a href="view/role/ajoutRoleperso.php">AJOUT ROLE</a>
 		</div>
 		<table>
 			<thead>
