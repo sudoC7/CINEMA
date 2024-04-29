@@ -6,39 +6,80 @@
 
 	//Dans cette page nous allons pouvoir ajouter et supprimer les films 
 ?>
-
+<div class="editTableau">
+		<!--TABLEAU FILM-->
 	<table>
 		<thead>
 			<tr>
-				<th>FILM</th>
-				<th>ACTEUR</th>
-				<th>GENRE</th>
-				<th>REALISATEUR</th>
-				<th>ROLE PERSONNAGE</th>
+				<th>FILMs</th>
 			</tr>
 		</thead>
 		<tbody>
 			<!-- Affiche tous les films du tableau  -->
 			<?php foreach ($requeteFilmsEdit->fetchAll() as $film) { ?>
-				<tr>
+				<tr> 
 					<td><a href="index.php?action=detailFilm&id=<?= $film["id_film"]; ?>"><?= $film["titre"] ?></a></td>
 				</tr>
 			<?php } ?>
+		</tbody>
+	</table>
+	
+	<!--TABLEAU ACTEUR-->
+	<table>
+		<thead>
+			<tr>
+				<th>ACTEURs</th>
+			</tr>
+		</thead>
+		<tbody>
 			<?php foreach ($requeteActeursEdit->fetchAll() as $acteur) { ?>
-				<tr>
+				<tr>      
 					<td><a href="index.php?action=detailActeur&id=<?= $acteur["id_acteur"]; ?>"><?= $acteur["Acteur"] ?></a></td>
 				</tr>
 			<?php } ?>
-			<?php foreach ($requeteGenresEdit->fetchAll() as $genre) { ?>
+		</tbody>
+	</table>
+	
+		<!--TABLEAU GENRE-->
+	<table>
+			<thead>
 				<tr>
-					<td><a href="index.php?action=detailGenre&id=<?= $genre["id_genre"]; ?>"><?= $genre["genreFilm"] ?></a></td>
+					<th>GENREs</th>
 				</tr>
-			<?php } ?>
+			</thead>
+			<tbody>
+				<?php foreach ($requeteGenresEdit->fetchAll() as $genre) { ?>
+					<tr>
+						<td><a href="index.php?action=detailGenre&id=<?= $genre["id_genre"]; ?>"><?= $genre["genreFilm"] ?></a></td>
+				    </tr>
+				<?php } ?>
+			</tbody>
+	</table>
+	
+	<!--TABLEAU REALISATEUR-->
+	<table>
+		<thead>
+			<tr>
+				<th>REALISATEURs</th>
+			</tr>
+		</thead>
+		<tbody>
 			<?php foreach ($requeteRealisateursEdit->fetchAll() as $realisateur) { ?>
 				<tr>
 					<td><a href="index.php?action=detailRealisateur&id=<?= $realisateur["id_realisateur"]; ?>"><?= $realisateur["Realisateur"] ?></a></td>
 				</tr>
 			<?php } ?>
+		</tbody>
+	</table>
+
+	<!--TABLEAU ROLE-->
+	<table>
+		<thead>
+			<tr>
+				<th>ROLEs</th>
+			</tr>
+		</thead>
+		<tbody>
 			<?php foreach ($requeteRolePersoEdit->fetchAll() as $roleperso) { ?>
 				<tr>
 					<td><a href="index.php?action=detailRoleperso&id=<?= $roleperso["id_roleperso"]; ?>"><?= $roleperso["nomPerso"] ?></a></td>
@@ -46,7 +87,9 @@
 			<?php } ?>
 		</tbody>
 	</table>
+</div>
 
+	
 <?php	
 	$content = ob_get_clean();
 	require_once "view/template.php";
