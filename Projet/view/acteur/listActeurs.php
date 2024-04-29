@@ -26,8 +26,8 @@
 				</tr>
 			<?php } ?>
 		</tbody>
-	</table>
-
+	</table> 
+	
 
 <?php	
 	$content = ob_get_clean();
