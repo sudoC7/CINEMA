@@ -60,23 +60,20 @@
 
 
         //Ajout d'un genre
-        public function ajoutGenre($genre) {
-
-            const $id = 0;
-
-            $pdoAjout = Connect::seConnecter();
+        public function ajoutGenre() {
             
-            $id++;
-            $rocketAjout = "INSERT INTO genre (genreFilm, id_genre) VALUES (:genre, :id);";
-            $ajoutGenre = $pdoAjout->prepare($rocketAjout);
-            $ajoutGenre->execute(["genre"=>$genre],["id"=>$id]);
-
-            header("Location: index.php?action=ajoutGenre");
-        
+            if(isset($_POST["submit"])){
+                
+                $newGenre = filter_input(INPUT_POST, "name", FILTER_SANITIZE_SPECIAL_CHARS);
+                if($newGenre){
+                    $pdoAjout = Connect::seConnecter();
+                    $rocketAjout = "INSERT INTO genre (genreFilm) VALUES (:newGenre);";
+                    $ajoutGenre = $pdoAjout->prepare($rocketAjout);
+                    $ajoutGenre->execute(["newGenre"=>$newGenre]);
+                }  
+            }
+            require "view/genre/ajoutGenre.php";
         }
-
-
-
 
 
         // Supprimer un genre
@@ -105,6 +102,5 @@
 
 
     }
-
 
 ?>
