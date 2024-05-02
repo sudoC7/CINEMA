@@ -5,11 +5,17 @@
     $title = "Ajout de Genre";
 ?>
     <!--     id_genre, genreFilm     -->
-    <form action="index.php***">
+    <form action="index.php?action=ajoutGenre" method="post" enctype="multipart/form-data">
         
-        <label for="">
-            <p></p>
-            <input type="text">
+        <!-- Barre de saisit -->
+        <label>
+            <p>Genre à ajouter </p>
+            <input type="text" name="name">
+        </label>
+
+        <!-- Button ajouter -->
+        <label>
+            <input type="submit" name="submit" value="Ajouter">
         </label>
         
     </form>
