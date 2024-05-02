@@ -62,12 +62,20 @@
         
 
         //Ajouter un Film 
+        public function ajoutFilm() {
 
-        public function ajoutFilm() {}
+            require "view/film/ajoutFilm.php";
+        }
+
+
+
 
         //Ajout d'un casting
-
         public function ajoutCasting() {}
+
+
+
+
 
         //Supprimer un film 
 

@@ -59,8 +59,16 @@
             require "view/acteur/detailActeur.php";
         }
         
+
+
         // Ajouter un Acteur 
-        public function ajoutActeur() {}
+        public function ajoutActeur() {
+
+            require "view/acteur/ajoutActeur.php";
+        }
+
+
+
 
         // Supprimer un Acteur 
         public function suppActeur($id) {

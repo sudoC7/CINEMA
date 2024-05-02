@@ -62,11 +62,21 @@
             require "view/role/detailRoleperso.php";
         }
         
+
+
+
         
         //Ajouter un RolePerso
-        public function ajouterRolePerso() {}
+        public function ajouterRolePerso() {
+
+
+            require "view/role/ajoutRolePerso.php";
+        }
         
         
+
+
+
         //Suprimer un RolePerso
         public function suppRolePerso($id) {
 

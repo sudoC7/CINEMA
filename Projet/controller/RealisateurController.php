@@ -56,8 +56,18 @@
             require "view/realisateur/detailRealisateur.php";
         }
 
+
+
+
         //Ajouter un réalisateur 
-        public function ajoutRealisateur() {}
+        public function ajoutRealisateur() {
+
+
+            require "view/realisateur/ajoutRealisateur.php";
+        }
+
+
+
 
         //Supprimer un réalisateur 
         public function suppRealisateur($id) {
