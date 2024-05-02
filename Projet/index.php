@@ -48,6 +48,8 @@ if(isset($_GET["action"])) {
         case "detailGenre" : $ctrlGenre->detailGenre($id); break;
         // supprime genre
         case "suppGenre" : $ctrlGenre->suppGenre($id); break;
+        // ajout genre
+        case "ajoutGenre" : $ctrlGenre->ajoutGenre(); break;
 
 
         //==== REALISATEURS ====//
@@ -56,6 +58,8 @@ if(isset($_GET["action"])) {
         case "detailRealisateur" : $ctrlRealisateur->detailRealisateur($id); break;
         // supprime realisateur
         case "suppRealisateur" : $ctrlRealisateur->suppRealisateur($id); break;
+        // ajout realisateur 
+        case "ajoutRealisateur" : $ctrlRealisateur->ajoutRealisateur(); break;
 
 
         //==== ROLE PERSONNAGE ====//
@@ -64,20 +68,13 @@ if(isset($_GET["action"])) {
         case "detailRoleperso" : $ctrlRoleperso->detailRolePerso($id); break;
         // supprime role perso
         case "suppRoleperso" : $ctrlRoleperso->suppRolePerso($id); break;
+        // ajout role perso
+        case "ajoutRoleperso" : $ctrlRoleperso->ajouterRolePerso(); break; 
         
         
         //==== EDIT CINEMA ====//
         case "listEditCinema" : $ctrlEdit->listEditCinema(); break;
-        // Film
-        case "suppCinemaFilm" : $ctrlEdit->suppCinemaFilm($id); break;
-        // Acteur
-        case "suppCinemaActeur" : $ctrlEdit->suppCinemaActeur($id); break;
-        // Realisateur
-        case "suppCinemaRealisateur" : $ctrlEdit->suppCinemaRealisateur($id); break;
-        // Genre
-        case "suppCinemaGenre" : $ctrlEdit->suppCinemaGenre($id); break;
-        // Roleperso
-        case "suppCinemaRoleperso" : $ctrlEdit->suppCinemaRole($id); break;
+        
 
     }
     
