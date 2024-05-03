@@ -27,8 +27,6 @@
             $pdoRP = Connect::seConnecter();
 
             if(isset($_GET['id'])) {
-                
-                // !!!!  REVOIR LA REQUETE "$roqueteRolePersoFilms" ( Affiche les mauvais films et acteur sur certains ??)!!! 
 
                 //Afficher le Role Personnage 
     
@@ -54,11 +52,9 @@
                 $pdoDetailRolePersoFilms->execute(["id" => $id]);
                 $requeteFilmRolePerso = $pdoDetailRolePersoFilms->fetchAll();
 
-
             } else {
                 echo "Pas de contenu\n";
             }
-
             require "view/role/detailRoleperso.php";
         }
         
@@ -69,7 +65,16 @@
         //Ajouter un RolePerso
         public function ajouterRolePerso() {
 
-
+            if(isset($_POST["submit"])){
+                
+                $newRoleperso = filter_input(INPUT_POST, "name", FILTER_SANITIZE_SPECIAL_CHARS);
+                if($newRoleperso){
+                    $pdoAjout = Connect::seConnecter();
+                    $rocketAjout = "INSERT INTO roleperso (nomPerso) VALUES (:newRoleperso);";
+                    $ajoutGenre = $pdoAjout->prepare($rocketAjout);
+                    $ajoutGenre->execute(["newRoleperso"=>$newRoleperso]);
+                }  
+            }
             require "view/role/ajoutRolePerso.php";
         }
         
@@ -77,7 +82,7 @@
 
 
 
-        //Suprimer un RolePerso
+        //Supprimer un RolePerso
         public function suppRolePerso($id) {
 
             $pdoRoleperso = Connect::seConnecter();
@@ -97,10 +102,7 @@
             } else {
                 echo "Erreur de suppression\n";
             }
-
             header("Location: index.php?action=listEditCinema");
-
         }
-        
     }
     ?>
