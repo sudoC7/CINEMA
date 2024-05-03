@@ -6,15 +6,21 @@
 ?>
 
     <!--  id_roleperso, nomPerso  -->
-    <form action="index.php***">
+    <form action="index.php?action=ajoutRoleperso" method="post">
         
-        <label for="">
-            <p></p>
-            <input type="text">
+        <label>
+            <p>Ajouter un Rôle personnage</p>
+            <input type="text" name="name">
+        </label>
+
+        <!--Button d'ajout-->
+        <label>
+            <input type="submit" name="submit" value="Ajouter">
         </label>
                                                 
     </form>
 
+    <a href="index.php?action=listEditCinema">Retour</a>
 
 <?php	
 	$content = ob_get_clean();
