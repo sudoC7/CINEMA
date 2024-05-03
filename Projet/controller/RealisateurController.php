@@ -62,7 +62,63 @@
         //Ajouter un réalisateur 
         public function ajoutRealisateur() {
 
+            if(isset($_POST["submit"])){
 
+                $file = $_FILES['fileImg'];
+
+                if(isset($file)) {
+
+                // toute information sur l'image
+                $fileName = $_FILES['fileImg']['name'];
+                $fileFullPath = $_FILES['fileImg']['full_path'];
+                $fileType = $_FILES['fileImg']['type'];
+                $fileTmpName = $_FILES['fileImg']['tmp_name'];
+                $fileError = $_FILES['fileImg']['error'];
+                $fileSize = $_FILES['fileImg']['size'];
+
+                $fileExt = explode('.', $fileName);
+                $fileActualExt = strtolower(end($fileExt));
+
+                // extensions du fichiers
+                $allowed = array('jpg', 'jpeg', 'png', 'svg');
+
+                if(in_array($fileActualExt, $allowed) && $fileError === 0 && $fileSize < 5000000) {
+                    
+                            // creation de l'unique ID
+                            $fileNameNew = uniqid('', true).".".$fileActualExt;
+                            $fileDestination = 'upload/'.$fileNameNew;
+                            move_upload_file($fileTmpName, $fileDestination); 
+                            $locationFile = "./upload/".$fileDestination;  
+                } else {
+                    $locationFile = NULL;
+                }
+
+            } else {
+                echo "n'existe pas \n";
+            }
+
+                
+
+                // controle nom prenom et la date de naissance 
+                $nom = filter_input(INPUT_POST, "lastname", FILTER_SANITIZE_SPECIAL_CHARS);
+                $prenom = filter_input(INPUT_POST, "firstname", FILTER_SANITIZE_SPECIAL_CHARS);
+                $bDay = filter_input(INPUT_POST, 'bday', FILTER_VALIDATE_REGEXP, array(
+                    "options" => array("regexp"=>"/^\d{4}-\d{2}-\d{2}$/")));
+
+                    //     id_realisateur, nomReal, prenomReal, dateNaissanceReal, afficheReal   -->
+                    // j'ai réussi à ajouter la date de naissance maintenant il me reste à afficher la photo du réalisateur 
+                if($nom && $prenom && $bDay && $locationFile){
+                    $pdoAjout = Connect::seConnecter();
+                    $rocketAjout = "INSERT INTO realisateur (nomReal, prenomReal, dateNaissanceReal, afficheReal) VALUES (:nom, :prenom, :bday, :fileImg);";
+                    $ajoutRealisateur = $pdoAjout->prepare($rocketAjout);
+                    $ajoutRealisateur->execute([
+                                                    "nom" => $nom,
+                                                    "prenom" => $prenom,
+                                                    "bday" => $bDay,
+                                                    "fileImg" => $locationFile
+                                                ]);                    
+                }  
+            }
             require "view/realisateur/ajoutRealisateur.php";
         }
 
