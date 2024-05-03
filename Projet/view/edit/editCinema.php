@@ -105,7 +105,7 @@
 		<table>
 			<thead>
 				<tr>
-					<th>ROLEs</th>
+					<th>ROLE/s</th>
 				</tr>
 			</thead>
 			<tbody>
