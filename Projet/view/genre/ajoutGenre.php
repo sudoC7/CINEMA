@@ -20,6 +20,8 @@
         
     </form>
 
+    <a href="index.php?action=listEditCinema">Retour</a>
+
 <?php	
 	$content = ob_get_clean();
 	require_once "view/template.php";
