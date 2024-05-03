@@ -6,7 +6,7 @@
 ?>
 
      <!--     id_acteur, nom, prenom, sexe, dateNaissance, afficheActeur    -->
-     <form action="index.php***">
+     <form action="index.php***" method="post" enctype="multipart/form-data">
         
         <!--nom -->
         <label for="">
@@ -39,6 +39,8 @@
         </label>
         
     </form>
+
+    <a href="index.php?action=listEditCinema">Retour</a>
 
 <?php	
 	$content = ob_get_clean();
