@@ -13,6 +13,7 @@
 	<table>
 		<thead>
 			<tr>
+				<th>Photo</th>
 				<th>Realisateur</th>
 				<th>Date Naissance</th>
 			</tr>
@@ -21,6 +22,7 @@
 			<!-- Affiche tous les réalisateurs du tableau -->
 			<?php foreach ($requeteRealisateurs->fetchAll() as $realisateur) { ?>
 				<tr>
+					<td><img style=" width: 100px; " src="<?= $realisateur["afficheReal"]; ?>" alt=""></td>
 					<td><a href="index.php?action=detailRealisateur&id=<?= $realisateur['id_realisateur'] ?>"><?= $realisateur["Realisateur"] ?></a></td>
 					<td><?= $realisateur["dateNaissanceReal"] ?></td>
 				</tr>
