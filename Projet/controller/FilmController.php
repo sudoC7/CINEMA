@@ -64,6 +64,8 @@
         //Ajouter un Film 
         public function ajoutFilm() {
 
+            // code d'ajout de film
+
             require "view/film/ajoutFilm.php";
         }
 
