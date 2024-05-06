@@ -40,6 +40,8 @@ if(isset($_GET["action"])) {
         case "detailActeur" : $ctrlActeur->detailActeur($id); break;
         // supprime acteur
         case "suppActeur" : $ctrlActeur->suppActeur($id); break;
+        // ajout acteur
+        case "ajoutActeur" : $ctrlActeur->ajoutActeur(); break;
 
 
         //==== GENRES ====//
