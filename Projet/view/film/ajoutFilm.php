@@ -6,55 +6,39 @@
 ?>
 
     <!--     id_film, titre, anneeSortie, duree, resumeFilm, noteFilm, afficheFilm, afficheBack, id_realisateur    -->
-    <form action="index.php***" method="post" enctype="multipart/form-data">
+    <form action="index.php?action=ajoutFilm" method="post" enctype="multipart/form-data">
             
         <!--Titre -->
-        <label for="">
-            <p></p>
+            <p>Titre</p>
             <input type="text">
-            </label>
             
-            <!--anneeSortie -->
-            <label for="">
-                <p></p>
-                <input type="text">
-            </label>
+            
+            <!-- anneeSortie -->
+                <p>Annee de sortie</p>
+                <input type="text" name="titre">
             
             <!--duree(min) -->
-            <label for="">
-                <p></p>
-                <input type="text">
-            </label>
+                <p>Durée</p>
+                <input type="number" name="">
             
             <!--synopsis(resumeFilm) -->
-            <label for="">
-                <p></p>
-                <input type="text">
-            </label>
+                <p>Synopsis</p>
+                <input type="text" name="resumeFilm">
             
             <!--noteFilm -->
-            <label for="">
-                <p></p>
-                <input type="text">
-            </label>
+                <p>Note</p>
+                <input type="number" name="noteFilm">
             
-            <!--afficheFilm -->
-            <label for="">
-                <p></p>
-                <input type="text">
-            </label>
+            <!--afficheFilm et afficheBack -->
+                <p>Photo principal</p>
+                <input type="file" name="afficheFilm">
+                <p>Photo du Back</p>
+                <input type="file" name="afficheBack">
             
-            <!--afficheBack -->
-            <label for="">
-                <p></p>
-                <input type="text">
-            </label>
+            <!-- id_realisateur (choix de réalisateur)  Faire un foreach qui la lister tous les réalisateur et pouvoir choisir le réalisateur-->
+                <p>Réalisateur</p>
             
-            <!-- id_realisateur (choix de réalisateur) -->
-            <label for="">
-                <p></p>
                 <input type="text">
-        </label>
             
     </form>
 
