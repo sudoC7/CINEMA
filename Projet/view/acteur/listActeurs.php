@@ -13,6 +13,7 @@
 	<table>
 		<thead>
 			<tr>
+				<th>Photo</th>
 				<th>Acteur</th>
 				<th>Sexe</th>
 			</tr>
@@ -20,9 +21,10 @@
 		<tbody>
 			<!-- Affiche tous les acteurs du tableau  -->
 			<?php foreach ($requeteActeurs->fetchAll() as $acteur) { ?>
-				<tr>
+				<tr>	
+					<td><img style="width: 100px;" src="<?= $acteur["afficheActeur"]; ?>" alt="Image de l'acteur"></td>
 					<td><a href="index.php?action=detailActeur&id=<?= $acteur["id_acteur"]; ?>"><?= $acteur["Acteur"] ?></a></td>
-					<td><?= $acteur["sexe"] ?></td>
+					<td><?= $acteur["sexe"] ?></td> 
 				</tr>
 			<?php } ?>
 		</tbody>
