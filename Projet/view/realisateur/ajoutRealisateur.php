@@ -3,7 +3,7 @@
 	ob_start();
     $title = "Ajout de Réalisateur"; 
 ?>
-
+    <h2>Ajout de REALISATEUR</h2>
     <!--     id_realisateur, nomReal, prenomReal, dateNaissanceReal, afficheReal   -->
     <form action="index.php?action=ajoutRealisateur" method="POST" enctype="multipart/form-data">
         
@@ -18,7 +18,7 @@
         
         <!-- pour importer une photo -->
             <p>Photo</p>
-            <input type="file" name="fileImg">
+            <input type="file" name="fileImg" accept=".jpg, .jpeg, .png, .svg">
         
         <!-- Boutton submit du fomulaire -->
             <input type="submit" name="submit" value="Ajouter">
