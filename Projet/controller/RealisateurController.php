@@ -11,7 +11,7 @@
 
         public function listRealisateurs() {
             
-            $rocketReal = "SELECT id_realisateur ,CONCAT(nomReal, ' ', prenomReal) AS Realisateur , dateNaissanceReal FROM realisateur";
+            $rocketReal = "SELECT id_realisateur ,CONCAT(nomReal, ' ', prenomReal) AS Realisateur , dateNaissanceReal, afficheReal FROM realisateur";
             
             $pdoRealisateurs = Connect::seConnecter();
             $requeteRealisateurs = $pdoRealisateurs->query($rocketReal);
@@ -28,7 +28,7 @@
                 $pdoRealisateur = Connect::seConnecter();
     
                 // Affiche un realisateur en particulier 
-                $rocketRealisateur = "SELECT id_realisateur, CONCAT(nomReal, ' ', prenomReal) AS Realisateur 
+                $rocketRealisateur = "SELECT id_realisateur, CONCAT(nomReal, ' ', prenomReal) AS Realisateur, afficheReal
                 FROM realisateur 
                 WHERE id_realisateur = :id";
     
@@ -57,18 +57,18 @@
         }
 
 
-
-
+        
+        
         //Ajouter un réalisateur 
         public function ajoutRealisateur() {
-
+            
             if(isset($_POST["submit"])){
-
-                $file = $_FILES['fileImg'];
-
+                
+                $file = $_FILES["fileImg"];
+                    
                 if(isset($file)) {
-
-                // toute information sur l'image
+                    
+                // toute informations sur l'image
                 $fileName = $_FILES['fileImg']['name'];
                 $fileFullPath = $_FILES['fileImg']['full_path'];
                 $fileType = $_FILES['fileImg']['type'];
@@ -85,10 +85,10 @@
                 if(in_array($fileActualExt, $allowed) && $fileError === 0 && $fileSize < 5000000) {
                     
                             // creation de l'unique ID
-                            $fileNameNew = uniqid('', true).".".$fileActualExt;
-                            $fileDestination = 'upload/'.$fileNameNew;
-                            move_upload_file($fileTmpName, $fileDestination); 
-                            $locationFile = "./upload/".$fileDestination;  
+                            $fileNameNew = uniqid('', true).".".$fileActualExt; 
+                            $fileDestination = './public/picture/realisateursImg/'.$fileNameNew;  
+                            move_uploaded_file($fileTmpName, $fileDestination);   
+                            $locationFile = $fileDestination;  // "./Projet/picture/". facultatif pour le chemin 
                 } else {
                     $locationFile = NULL;
                 }
@@ -97,26 +97,24 @@
                 echo "n'existe pas \n";
             }
 
-                
-
-                // controle nom prenom et la date de naissance 
-                $nom = filter_input(INPUT_POST, "lastname", FILTER_SANITIZE_SPECIAL_CHARS);
-                $prenom = filter_input(INPUT_POST, "firstname", FILTER_SANITIZE_SPECIAL_CHARS);
-                $bDay = filter_input(INPUT_POST, 'bday', FILTER_VALIDATE_REGEXP, array(
+            // controle nom prenom et la date de naissance 
+            $nom = filter_input(INPUT_POST, "lastname", FILTER_SANITIZE_SPECIAL_CHARS);
+            $prenom = filter_input(INPUT_POST, "firstname", FILTER_SANITIZE_SPECIAL_CHARS);
+            $bDay = filter_input(INPUT_POST, 'bday', FILTER_VALIDATE_REGEXP, array(
                     "options" => array("regexp"=>"/^\d{4}-\d{2}-\d{2}$/")));
 
-                    //     id_realisateur, nomReal, prenomReal, dateNaissanceReal, afficheReal   -->
-                    // j'ai réussi à ajouter la date de naissance maintenant il me reste à afficher la photo du réalisateur 
-                if($nom && $prenom && $bDay && $locationFile){
-                    $pdoAjout = Connect::seConnecter();
-                    $rocketAjout = "INSERT INTO realisateur (nomReal, prenomReal, dateNaissanceReal, afficheReal) VALUES (:nom, :prenom, :bday, :fileImg);";
-                    $ajoutRealisateur = $pdoAjout->prepare($rocketAjout);
-                    $ajoutRealisateur->execute([
-                                                    "nom" => $nom,
-                                                    "prenom" => $prenom,
-                                                    "bday" => $bDay,
-                                                    "fileImg" => $locationFile
-                                                ]);                    
+                //     id_realisateur, nomReal, prenomReal, dateNaissanceReal, afficheReal   -->
+                // j'ai réussi à ajouter la date de naissance maintenant il me reste à afficher la photo du réalisateur 
+            if($nom && $prenom && $bDay && $locationFile){
+                $pdoAjout = Connect::seConnecter();
+                $rocketAjout = "INSERT INTO realisateur (nomReal, prenomReal, dateNaissanceReal, afficheReal) VALUES (:nom, :prenom, :bday, :fileImg);";
+                $ajoutRealisateur = $pdoAjout->prepare($rocketAjout);
+                $ajoutRealisateur->execute([
+                                                "nom" => $nom,
+                                                "prenom" => $prenom,
+                                                "bday" => $bDay,
+                                                "fileImg" => $locationFile
+                                            ]);                    
                 }  
             }
             require "view/realisateur/ajoutRealisateur.php";
