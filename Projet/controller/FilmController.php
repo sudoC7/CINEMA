@@ -64,10 +64,37 @@
         //Ajouter un Film 
         public function ajoutFilm() {
 
-            // code d'ajout de film
+                // code d'ajout de film
+                if(isset($_POST["submit"])){
 
-            require "view/film/ajoutFilm.php";
-        }
+                    var_dump($_POST).
+
+                    //  id_film, titre, anneeSortie, duree, resumeFilm, noteFilm, afficheFilm, afficheBack, id_realisateur
+                    $titre = filter_input(INPUT_POST, "titre", FILTER_SANITIZE_SPECIAL_CHARS);
+                    $anneeSortie = filter_input(INPUT_POST, "anneeSortie", FILTER_VALIDATE_INT);  
+                    $duree = filter_input(INPUT_POST, "duree", FILTER_VALIDATE_FLOAT);
+                    $resumeFilm = filter_input(INPUT_POST, "resumeFilm", FILTER_SANITIZE_SPECIAL_CHARS);
+                    $noteFilm = filter_input(INPUT_POST, "noteFilm", FILTER_VALIDATE_INT);
+                    //$id_realisateur = filter_input(INPUT_POST, "idRealisateur", FILTER_VALIDATE_INT);
+
+                    if($titre && $anneeSortie && $duree && $resumeFilm && $noteFilm) {
+                        $pdoAjout = Connect::seConnecter();
+                        $rocketAjout = "INSERT INTO film (titre, anneeSortie, duree, resumeFilm, noteFilm) VALUES (:titre, :anneeSortie, :duree, :resumeFilm, :noteFilm);";
+                        $ajoutRealisateur = $pdoAjout->prepare($rocketAjout);
+                        $ajoutRealisateur->execute([
+                                                        "titre" => $titre,
+                                                        "anneeSortie" => $anneeSortie,
+                                                        "duree" => $duree,
+                                                        "resumeFilm" => $resumeFilm,
+                                                        "noteFilm" => $noteFilm,
+                                                        //"id_realisateur" => $id_realisateur
+                                                    ]);                    
+                    }  
+                }
+                require "view/film/ajoutFilm.php";
+            }
+
+        
 
 
 
