@@ -64,6 +64,11 @@
         //Ajouter un Film 
         public function ajoutFilm() {
 
+            // Pour afficher les realisateur 
+            $rocketReal = "SELECT id_realisateur ,CONCAT(nomReal, ' ', prenomReal) AS Realisateur FROM realisateur";
+            $pdoRealisateurs = Connect::seConnecter();
+            $requeteRealisateurs = $pdoRealisateurs->query($rocketReal);
+
                 // code d'ajout de film
                 if(isset($_POST["submit"])){
 
@@ -75,11 +80,11 @@
                     $duree = filter_input(INPUT_POST, "duree", FILTER_VALIDATE_FLOAT);
                     $resumeFilm = filter_input(INPUT_POST, "resumeFilm", FILTER_SANITIZE_SPECIAL_CHARS);
                     $noteFilm = filter_input(INPUT_POST, "noteFilm", FILTER_VALIDATE_INT);
-                    //$id_realisateur = filter_input(INPUT_POST, "idRealisateur", FILTER_VALIDATE_INT);
+                    $id_realisateur = filter_input(INPUT_POST, "idRealisateur", FILTER_VALIDATE_INT);
 
                     if($titre && $anneeSortie && $duree && $resumeFilm && $noteFilm) {
                         $pdoAjout = Connect::seConnecter();
-                        $rocketAjout = "INSERT INTO film (titre, anneeSortie, duree, resumeFilm, noteFilm) VALUES (:titre, :anneeSortie, :duree, :resumeFilm, :noteFilm);";
+                        $rocketAjout = "INSERT INTO film (titre, anneeSortie, duree, resumeFilm, noteFilm, id_realisateur) VALUES (:titre, :anneeSortie, :duree, :resumeFilm, :noteFilm, :idRealisateur);";
                         $ajoutRealisateur = $pdoAjout->prepare($rocketAjout);
                         $ajoutRealisateur->execute([
                                                         "titre" => $titre,
@@ -87,12 +92,12 @@
                                                         "duree" => $duree,
                                                         "resumeFilm" => $resumeFilm,
                                                         "noteFilm" => $noteFilm,
-                                                        //"id_realisateur" => $id_realisateur
+                                                        "idRealisateur" => $id_realisateur
                                                     ]);                    
                     }  
                 }
-                require "view/film/ajoutFilm.php";
-            }
+            require "view/film/ajoutFilm.php";
+        }
 
         
 
