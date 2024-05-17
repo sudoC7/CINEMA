@@ -71,8 +71,8 @@
 
                 // code d'ajout de film
                 if(isset($_POST["submit"])){
-
-                    var_dump($_POST).
+                    // Pour controler le POST 
+                    // var_dump($_POST);
 
                     //  id_film, titre, anneeSortie, duree, resumeFilm, noteFilm, afficheFilm, afficheBack, id_realisateur
                     $titre = filter_input(INPUT_POST, "titre", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -80,11 +80,11 @@
                     $duree = filter_input(INPUT_POST, "duree", FILTER_VALIDATE_FLOAT);
                     $resumeFilm = filter_input(INPUT_POST, "resumeFilm", FILTER_SANITIZE_SPECIAL_CHARS);
                     $noteFilm = filter_input(INPUT_POST, "noteFilm", FILTER_VALIDATE_INT);
-                    $id_realisateur = filter_input(INPUT_POST, "idRealisateur", FILTER_VALIDATE_INT);
+                    $id_realisateur = filter_input(INPUT_POST, "id_realisateur", FILTER_VALIDATE_INT);
 
-                    if($titre && $anneeSortie && $duree && $resumeFilm && $noteFilm) {
+                    if($titre && $anneeSortie && $duree && $resumeFilm && $noteFilm && $id_realisateur) {
                         $pdoAjout = Connect::seConnecter();
-                        $rocketAjout = "INSERT INTO film (titre, anneeSortie, duree, resumeFilm, noteFilm, id_realisateur) VALUES (:titre, :anneeSortie, :duree, :resumeFilm, :noteFilm, :idRealisateur);";
+                        $rocketAjout = "INSERT INTO film (titre, anneeSortie, duree, resumeFilm, noteFilm, id_realisateur) VALUES (:titre, :anneeSortie, :duree, :resumeFilm, :noteFilm, :id_realisateur);";
                         $ajoutRealisateur = $pdoAjout->prepare($rocketAjout);
                         $ajoutRealisateur->execute([
                                                         "titre" => $titre,
@@ -92,7 +92,7 @@
                                                         "duree" => $duree,
                                                         "resumeFilm" => $resumeFilm,
                                                         "noteFilm" => $noteFilm,
-                                                        "idRealisateur" => $id_realisateur
+                                                        "id_realisateur" => $id_realisateur
                                                     ]);                    
                     }  
                 }
