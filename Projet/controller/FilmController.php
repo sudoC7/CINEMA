@@ -69,7 +69,13 @@
             $pdoRealisateurs = Connect::seConnecter();
             $requeteRealisateurs = $pdoRealisateurs->query($rocketReal);
 
-                // code d'ajout de film
+            // Pour afficher un genre 
+            $rocketGenre = "SELECT "
+            $pdoGenre = Connect::seConnecter();
+            $requeteGenre = $pdoGenre->query($rocketGenre);
+
+
+                // Code d'ajout de film
                 if(isset($_POST["submit"])){
                     // Pour controler le POST 
                     // var_dump($_POST);
