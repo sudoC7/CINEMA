@@ -36,20 +36,13 @@
                 <input type="file" name="afficheBack">-->
             
             <!-- id_realisateur (choix de réalisateur)  Faire un foreach qui la lister tous les réalisateur et pouvoir choisir le réalisateur -->
-            <br>
+            <br>                
             <!-- OPTION 1 : -->
-                <select name="<?= $real['id_realisateur']; ?>">
-                    <?php foreach($requeteRealisateurs->fetchAll() as $real) { 
-                     echo "<option value=' ".$real['id_realisateur']." '> ".$real['Realisateur']."</option>";
-                     }; ?>
-                </select>
-
-            <!-- OPTION 2 : -->
-                <?php foreach($requeteRealisateurs->fetchAll() as $real) {?>
-                    <select name="">
-                        <option value=""><?= $real['Realisateur'] ?></option>
+            <select name="id_realisateur">
+                        <?php foreach($requeteRealisateurs->fetchAll() as $real) {?>
+                        <option value="<?=$real["id_realisateur"]?>"><?= $real['Realisateur'] ?></option>
+                        <?php }?>   <!-- PROBLEME  -->
                     </select>
-                <?=}?>   
 
             <!-- Boutton pour ajouter -->    
                 <input type="submit" name="submit" value="Ajouter">
