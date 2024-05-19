@@ -69,16 +69,10 @@
             $pdoRealisateurs = Connect::seConnecter();
             $requeteRealisateurs = $pdoRealisateurs->query($rocketReal);
 
-            // Pour afficher un genre 
-            $rocketGenre = "SELECT "
-            $pdoGenre = Connect::seConnecter();
-            $requeteGenre = $pdoGenre->query($rocketGenre);
-
-
-                // Code d'ajout de film
+                // Instructions pour ajouter un film 
                 if(isset($_POST["submit"])){
-                    // Pour controler le POST 
-                    // var_dump($_POST);
+                   
+                    //var_dump($_POST);
 
                     //  id_film, titre, anneeSortie, duree, resumeFilm, noteFilm, afficheFilm, afficheBack, id_realisateur
                     $titre = filter_input(INPUT_POST, "titre", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -101,7 +95,8 @@
                                                         "id_realisateur" => $id_realisateur
                                                     ]);                    
                     }  
-                }
+                } 
+
             require "view/film/ajoutFilm.php";
         }
 
@@ -109,8 +104,8 @@
 
 
 
-
-        //Ajout d'un casting
+        // Qu'est-ce que je devrais avoir dans le casting ? : ajoute de genre, role perso et acteur 
+        // Ajout d'un casting
         public function ajoutCasting() {}
 
 
