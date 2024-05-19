@@ -74,6 +74,32 @@
                    
                     //var_dump($_POST);
 
+                    // AJOUT D'IMAGE EN COURS... ???????????????????????????
+
+                    if(isset($_FILES['file'])){
+                        
+                        //Controlleur d'image 
+                        
+                        $fileName = $_FILES['file']['name'];
+                        $fileFullPath = $_FILES['file']['full_path'];
+                        $fileType = $_FILES['file']['type'];
+                        $fileTmpName = $_FILES['file']['tmp_name'];
+                        $fileError = $_FILES['file']['error'];
+                        $fileSize = $_FILES['file']['size'];
+                        
+                        $fileExt = explode('.', $fileName);
+                        $fileActualExt = strtolower(end($fileExt));
+                        
+                        // extension from file 
+                        $allowed = array('jpg', 'jpeg', 'png', 'pdf');
+                        
+                        if(in_array($fileActualExt, $allowed) && $fileError === 0 && $fileSize < 1000000) {
+                            
+                        }
+                        
+                    }
+                    //??????????????????????????????????????????????????????
+
                     //  id_film, titre, anneeSortie, duree, resumeFilm, noteFilm, afficheFilm, afficheBack, id_realisateur
                     $titre = filter_input(INPUT_POST, "titre", FILTER_SANITIZE_SPECIAL_CHARS);
                     $anneeSortie = filter_input(INPUT_POST, "anneeSortie", FILTER_VALIDATE_INT);  
