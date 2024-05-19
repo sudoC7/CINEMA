@@ -28,21 +28,21 @@
             <!-- noteFilm -->
                 <p>Note</p>
                 <input type="number" name="noteFilm">
-            
-            <!-- afficheFilm et afficheBack 
-                <p>Photo principal</p>
-                <input type="file" name="afficheFilm">
-                <p>Photo du Back</p>
-                <input type="file" name="afficheBack">-->
-            
-            <!-- id_realisateur (choix de réalisateur)  Faire un foreach qui la lister tous les réalisateur et pouvoir choisir le réalisateur -->
-            <br>                
-            <!-- OPTION 1 : -->
-            <select name="id_realisateur">
-                        <?php foreach($requeteRealisateurs->fetchAll() as $real) {?>
+                
+                <br>                
+            <!-- Choisir le realisateur -->
+                <p>Réalisateur</p>
+                <select name="id_realisateur">
+                    <?php foreach($requeteRealisateurs->fetchAll() as $real) {?>
                         <option value="<?=$real["id_realisateur"]?>"><?= $real['Realisateur'] ?></option>
-                        <?php }?>   <!-- PROBLEME  -->
-                    </select>
+                        <?php }?>   
+                </select>
+                    
+            <!-- afficheFilm et afficheBack -->
+                <p>Affiche du film</p>
+                <input type="file" name="afficheFilm">
+                <p>Photo du Background</p>
+                <input type="file" name="afficheBack">
 
             <!-- Boutton pour ajouter -->    
                 <input type="submit" name="submit" value="Ajouter">
