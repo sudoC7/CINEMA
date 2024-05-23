@@ -11,7 +11,7 @@
 
         public function listFilms() {
 
-            $rocketFilm = "SELECT id_film, titre, anneeSortie FROM film ORDER BY anneeSortie DESC";
+            $rocketFilm = "SELECT id_film, titre, anneeSortie, afficheFilm, afficheBack FROM film ORDER BY anneeSortie DESC";
 
             $pdoFilms = Connect::seConnecter();
             $requeteFilms = $pdoFilms->query($rocketFilm);
@@ -74,31 +74,22 @@
                    
                     //var_dump($_POST);
 
-                    // AJOUT D'IMAGE EN COURS... ???????????????????????????
+                    // Les variables des deux images du Film
+                    $afficheFilm = NULL; 
+                    $afficheBack = NULL;
 
-                    if(isset($_FILES['file'])){
-                        
-                        //Controlleur d'image 
-                        
-                        $fileName = $_FILES['file']['name'];
-                        $fileFullPath = $_FILES['file']['full_path'];
-                        $fileType = $_FILES['file']['type'];
-                        $fileTmpName = $_FILES['file']['tmp_name'];
-                        $fileError = $_FILES['file']['error'];
-                        $fileSize = $_FILES['file']['size'];
-                        
-                        $fileExt = explode('.', $fileName);
-                        $fileActualExt = strtolower(end($fileExt));
-                        
-                        // extension from file 
-                        $allowed = array('jpg', 'jpeg', 'png', 'pdf');
-                        
-                        if(in_array($fileActualExt, $allowed) && $fileError === 0 && $fileSize < 1000000) {
-                            
-                        }
-                        
+                    // Controle du première Image
+                    if(isset($_FILES['afficheFilm'])){
+                        $afficheFilm = $this->uploadImg($_FILES['afficheFilm']);
                     }
-                    //??????????????????????????????????????????????????????
+
+                    // Controle du deuxième Image
+                    if(isset($_FILES['afficheBack'])){
+                        $afficheBack = $this->uploadImg($_FILES['afficheBack']);
+                    }
+
+                    var_dump($afficheFilm);
+                    var_dump($afficheBack);
 
                     //  id_film, titre, anneeSortie, duree, resumeFilm, noteFilm, afficheFilm, afficheBack, id_realisateur
                     $titre = filter_input(INPUT_POST, "titre", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -108,9 +99,9 @@
                     $noteFilm = filter_input(INPUT_POST, "noteFilm", FILTER_VALIDATE_INT);
                     $id_realisateur = filter_input(INPUT_POST, "id_realisateur", FILTER_VALIDATE_INT);
 
-                    if($titre && $anneeSortie && $duree && $resumeFilm && $noteFilm && $id_realisateur) {
+                    if($titre && $anneeSortie && $duree && $resumeFilm && $noteFilm && $id_realisateur && $afficheFilm && $afficheBack) {
                         $pdoAjout = Connect::seConnecter();
-                        $rocketAjout = "INSERT INTO film (titre, anneeSortie, duree, resumeFilm, noteFilm, id_realisateur) VALUES (:titre, :anneeSortie, :duree, :resumeFilm, :noteFilm, :id_realisateur);";
+                        $rocketAjout = "INSERT INTO film (titre, anneeSortie, duree, resumeFilm, noteFilm, id_realisateur, afficheFilm, afficheBack) VALUES (:titre, :anneeSortie, :duree, :resumeFilm, :noteFilm, :id_realisateur, :afficheFilm, :afficheBack);";
                         $ajoutRealisateur = $pdoAjout->prepare($rocketAjout);
                         $ajoutRealisateur->execute([
                                                         "titre" => $titre,
@@ -118,19 +109,48 @@
                                                         "duree" => $duree,
                                                         "resumeFilm" => $resumeFilm,
                                                         "noteFilm" => $noteFilm,
-                                                        "id_realisateur" => $id_realisateur
+                                                        "id_realisateur" => $id_realisateur,
+                                                        "afficheFilm" => $afficheFilm,
+                                                        "afficheBack" => $afficheBack
                                                     ]);                    
                     }  
                 } 
-
             require "view/film/ajoutFilm.php";
         }
 
-        
+        // Fonction lié avec la fonction ajoutFilm pour le controlle des fichier téléchargés  
+        private function uploadImg($file){
+
+            $fileName = $file['name'];
+            $fileFullPath = $file['full_path'];
+            $fileType = $file['type'];
+            $fileTmpName = $file['tmp_name'];
+            $fileError = $file['error'];
+            $fileSize = $file['size'];
+                        
+            $fileExt = explode('.', $fileName);
+            $fileActualExt = strtolower(end($fileExt));
+                        
+            // extension from file 
+            $allowed = array('jpg', 'jpeg', 'png', 'pdf');
+                        
+            if(in_array($fileActualExt, $allowed) && $fileError === 0 && $fileSize < 5000000) {
+                //creat a unique ID
+                $fileNameNew = uniqid('', true).".".$fileActualExt;
+                $fileDestination = './public/picture/filmsImg/'.$fileNameNew;
+                move_uploaded_file($fileTmpName, $fileDestination);
+                $locationFile = $fileDestination;
+                return $locationFile;
+                   
+            } else {
+                return $locationFile = NULL;
+            }
+        }
+
+      
 
 
-
-        // Qu'est-ce que je devrais avoir dans le casting ? : ajoute de genre, role perso et acteur 
+        // Qu'est-ce que je devrais avoir dans le casting ? : ajout de genre, role perso et acteur 
         // Ajout d'un casting
         public function ajoutCasting() {}
 
@@ -168,7 +188,6 @@
             
             header("Location: index.php?action=listEditCinema");
         }
-
 
     }
 
