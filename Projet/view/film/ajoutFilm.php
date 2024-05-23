@@ -40,9 +40,9 @@
                     
             <!-- afficheFilm et afficheBack -->
                 <p>Affiche du film</p>
-                <input type="file" name="afficheFilm">
+                <input type="file" name="afficheFilm" accept=".jpg, .jpeg, .png, .svg">
                 <p>Photo du Background</p>
-                <input type="file" name="afficheBack">
+                <input type="file" name="afficheBack" accept=".jpg, .jpeg, .png, .svg">
 
             <!-- Boutton pour ajouter -->    
                 <input type="submit" name="submit" value="Ajouter">
