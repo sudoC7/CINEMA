@@ -15,6 +15,8 @@
 			<tr>
 				<th>TITRE</th>
 				<th>ANNEE SORTIE</th>
+				<th>Affiche Film</th>
+				<th>Affiche Back</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -24,6 +26,8 @@
 				<tr> <!-- ajout de liens pour detailFilm.php ... -->
 					<td><a href="index.php?action=detailFilm&id=<?= $film["id_film"]; ?>"><?= $film["titre"] ?></a></td>
 					<td><?= $film["anneeSortie"] ?></td>
+					<td><img style=" width: 100px; " src="<?= $film["afficheFilm"]; ?>" alt="L'affiche du film"></td>
+					<td><img style=" width: 100px; " src="<?= $film["afficheBack"]; ?>" alt="L'image du background"></td>
 				</tr>
 																																
 			<?php }	?>
