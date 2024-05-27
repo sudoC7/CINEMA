@@ -4,10 +4,12 @@
 
     $title = "Edit Cinema";
 
-	//Dans cette page nous allons pouvoir ajouter et supprimer les films 
+	//Dans cette page nous allons pouvoir ajouter et supprimer 
+	//  "acteurs" "realisateurs" "genre" "film" "role" et le "casting" 
 ?>
 <div class="editTableau">
 
+	<div><a href="index.php?action=ajoutCasting">AJOUT CASTING</a></div>
 	<!--TABLEAU FILM-->
 	<div>
 		<div>
