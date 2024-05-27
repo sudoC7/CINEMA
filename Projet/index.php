@@ -34,6 +34,8 @@ if(isset($_GET["action"])) {
         case "suppFilm" : $ctrlFilm->suppFilm($id); break;
         // ajout film
         case "ajoutFilm" : $ctrlFilm->ajoutFilm(); break;
+        // ajout casting 
+        case "ajoutCasting" : $ctrlFilm->ajoutCasting(); break;
 
 
         //==== ACTEURS ====//
