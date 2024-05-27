@@ -152,7 +152,69 @@
 
         // Qu'est-ce que je devrais avoir dans le casting ? : ajout de genre, role perso et acteur 
         // Ajout d'un casting
-        public function ajoutCasting() {}
+        public function ajoutCasting() {
+
+            /////////////////////////////////////////////////////////////////
+            
+            // Liste des Films
+            $rocketFilm = "SELECT id_film, titre  FROM film";
+            $pdoFilm = Connect::seConnecter();
+            $requeteFilm = $pdoFilm->query($rocketFilm);
+
+            // Liste des acteurs
+            $rocketActeur = "SELECT id_acteur, CONCAT(nom, ' ', prenom) AS nomActeur FROM acteur ";
+            $pdoActeur = Connect::seConnecter();
+            $requeteActeur = $pdoActeur->query($rocketActeur);
+            
+            // Liste des genres
+            $rocketGenre = "SELECT id_genre, genreFilm FROM genre";
+            $pdoGenre = Connect::seConnecter();
+            $requeteGenre = $pdoGenre->query($rocketGenre);
+            
+            
+            // Liste des roleperso
+            $rocketRoleperso = "SELECT id_roleperso, nomPerso FROM roleperso;";
+            $pdoRoleperso = Connect::seConnecter();
+            $requeteRoleperso = $pdoRoleperso->query($rocketRoleperso);
+
+            ////////////////////////////////////////////////////////////////////
+                
+            
+               // !!!! !!!!  PAS ENCORE TESTé !!!!! 
+
+            if(isset($_POST["submit"])){
+
+                $id_film = filter_input(INPUT_POST, "id_film", FILTER_VALIDATE_INT);
+                $id_acteur = filter_input(INPUT_POST, "id_acteur", FILTER_VALIDATE_INT);
+                $id_roleperso = filter_input(INPUT_POST, "id_roleperso", FILTER_VALIDATE_INT);
+                $id_genre = filter_input(INPUT_POST, "id_genre", FILTER_VALIDATE_INT);
+
+                if($id_film && $id_acteur && $id_roleperso) {
+                    $pdojoueRole = Connect::seConnecter();
+                    $rocketjoueRole = "INSERT INTO jouerole (id_film, id_acteur, id_role_personnage) VALUES (:id_film, :id_acteur, :id_roleperso); ";
+                    $requetejoueRole = $pdojoueRole->prepare($rocketjoueRole);
+                    $requetejoueRole->executer([
+                                                    "id_film" => $id_film,
+                                                    "id_acteur" => $id_acteur,
+                                                    "id_roleperso" => $id_roleperso
+                                                ]);
+                }
+
+                if($id_film && $id_genre) {
+                    $pdoCategorie = Connect::seConnecter();
+                    $rocketCategorie ="INSERT INTO categorie (id_film, id_genre) VALUES (:id_film, :id_genre);";
+                    $requeteCategorie = $pdoCategorie->prepare($rocketCategorie);
+                    $requeteCategorie->executer([
+                                                    "id_film" => $id_film,
+                                                    "id_genre" => $id_genre
+                                                ]);
+                }
+
+            }
+            // !!!! !!!!  PAS ENCORE TESTé !!!!! 
+
+            require "view/film/ajoutCasting.php";
+        }
 
 
 
