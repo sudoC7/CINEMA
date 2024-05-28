@@ -189,30 +189,32 @@
                 $id_roleperso = filter_input(INPUT_POST, "id_roleperso", FILTER_VALIDATE_INT);
                 $id_genre = filter_input(INPUT_POST, "id_genre", FILTER_VALIDATE_INT);
 
-                if($id_film && $id_acteur && $id_roleperso) {
-                    $pdojoueRole = Connect::seConnecter();
+                if($id_film && $id_acteur && $id_roleperso && $id_genre) {
+                    
+                    $pdoCateJoueRole = Connect::seConnecter();
+
                     $rocketjoueRole = "INSERT INTO jouerole (id_film, id_acteur, id_role_personnage) VALUES (:id_film, :id_acteur, :id_roleperso); ";
-                    $requetejoueRole = $pdojoueRole->prepare($rocketjoueRole);
-                    $requetejoueRole->executer([
+                    $requetejoueRole = $pdoCateJoueRole->prepare($rocketjoueRole);
+                    $requetejoueRole->execute([
                                                     "id_film" => $id_film,
                                                     "id_acteur" => $id_acteur,
                                                     "id_roleperso" => $id_roleperso
                                                 ]);
-                }
-
-                if($id_film && $id_genre) {
-                    $pdoCategorie = Connect::seConnecter();
+             
                     $rocketCategorie ="INSERT INTO categorie (id_film, id_genre) VALUES (:id_film, :id_genre);";
-                    $requeteCategorie = $pdoCategorie->prepare($rocketCategorie);
-                    $requeteCategorie->executer([
+                    $requeteCategorie = $pdoCateJoueRole->prepare($rocketCategorie);
+                    $requeteCategorie->execute([
                                                     "id_film" => $id_film,
                                                     "id_genre" => $id_genre
                                                 ]);
+                
+                var_dump($requetejoueRole);
+                var_dump($requeteCategorie); die;
+                
                 }
 
             }
             // !!!! !!!!  PAS ENCORE TESTé !!!!! 
-
             require "view/film/ajoutCasting.php";
         }
 
