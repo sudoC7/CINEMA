@@ -47,7 +47,6 @@
                 $pdoGenreFilms->execute(["id" => $id]);
                 $requeteGenreFilms = $pdoGenreFilms->fetchAll();
 
-
             } else {
                 echo "Pas de contenu\n";
             }
