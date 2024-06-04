@@ -19,7 +19,7 @@
 			<!-- Affiche tous les réalisateurs du tableau -->
 			<?php foreach ($requeteDetailRealisateur as $realisateur) { ?>
 				<tr>
-					<td><a href=""><?= $realisateur["titre"] ?></a></td>
+					<td><a href="index.php?action=detailFilm&id=<?= $realisateur["id_film"]?>"><?= $realisateur["titre"] ?></a></td>
 					<td><?= $realisateur["anneeSortie"] ?></td>
 				</tr>
 			<?php }	?>
