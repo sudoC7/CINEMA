@@ -39,7 +39,7 @@
 
                 // Affiche le detail d'un réalisateur
 
-                $rocketRealisateur1 = "SELECT realisateur.id_realisateur, titre, anneeSortie
+                $rocketRealisateur1 = "SELECT film.id_film, realisateur.id_realisateur, titre, anneeSortie
                 FROM film 
                 INNER JOIN realisateur ON realisateur.id_realisateur = film.id_realisateur
                 WHERE realisateur.id_realisateur = :id";

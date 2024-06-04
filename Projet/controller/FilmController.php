@@ -54,10 +54,7 @@
             } else {
                 echo "Pas de contenu\n";
             }
-            
             require "view/film/detailFilm.php";
-            
-            // $requeteFilm = $pdo->prepare("SELECT * FROM film WHERE id_film = :id"); $requeteFilm->execute(["id"=> $id]) 
         }
         
 
@@ -88,8 +85,8 @@
                         $afficheBack = $this->uploadImg($_FILES['afficheBack']);
                     }
 
-                    var_dump($afficheFilm);
-                    var_dump($afficheBack);
+                   // var_dump($afficheFilm);
+                   // var_dump($afficheBack);
 
                     //  id_film, titre, anneeSortie, duree, resumeFilm, noteFilm, afficheFilm, afficheBack, id_realisateur
                     $titre = filter_input(INPUT_POST, "titre", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -150,12 +147,10 @@
       
 
 
-        // Qu'est-ce que je devrais avoir dans le casting ? : ajout de genre, role perso et acteur 
         // Ajout d'un casting
+
         public function ajoutCasting() {
 
-            /////////////////////////////////////////////////////////////////
-            
             // Liste des Films
             $rocketFilm = "SELECT id_film, titre  FROM film";
             $pdoFilm = Connect::seConnecter();
@@ -171,16 +166,11 @@
             $pdoGenre = Connect::seConnecter();
             $requeteGenre = $pdoGenre->query($rocketGenre);
             
-            
             // Liste des roleperso
             $rocketRoleperso = "SELECT id_roleperso, nomPerso FROM roleperso;";
             $pdoRoleperso = Connect::seConnecter();
             $requeteRoleperso = $pdoRoleperso->query($rocketRoleperso);
 
-            ////////////////////////////////////////////////////////////////////
-                
-            
-               // !!!! !!!!  PAS ENCORE TESTé !!!!! 
 
             if(isset($_POST["submit"])){
 
@@ -207,14 +197,8 @@
                                                     "id_film" => $id_film,
                                                     "id_genre" => $id_genre
                                                 ]);
-                
-                var_dump($requetejoueRole);
-                var_dump($requeteCategorie); die;
-                
                 }
-
             }
-            // !!!! !!!!  PAS ENCORE TESTé !!!!! 
             require "view/film/ajoutCasting.php";
         }
 
