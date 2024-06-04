@@ -25,7 +25,7 @@
                 </select>
         <!--    Liste de RolePerso    -->
         <p>Role Personnage</p>
-                <select name="id_role">
+                <select name="id_roleperso">
                     <?php foreach($requeteRoleperso->fetchAll() as $role) {?>
                         <option value="<?=$role["id_roleperso"]?>"><?= $role['nomPerso'] ?></option>
                         <?php }?>   
@@ -41,7 +41,6 @@
                 <!-- Boutton pour ajouter -->    
                 <input type="submit" name="submit" value="Ajouter">
             
-
     </form>
 
     <a href="index.php?action=listEditCinema">Retour</a>        
