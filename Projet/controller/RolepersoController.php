@@ -41,7 +41,7 @@
     
                 //Afficher les films et l'acteur du Personnage  
     
-                $roqueteRolePersoFilms = " SELECT film.titre, CONCAT(acteur.nom, ' ', acteur.prenom) AS Acteur
+                $roqueteRolePersoFilms = " SELECT film.id_film, acteur.id_acteur, film.titre, CONCAT(acteur.nom, ' ', acteur.prenom) AS Acteur
                 FROM acteur
                 INNER JOIN jouerole ON acteur.id_acteur = jouerole.id_acteur
                 INNER JOIN roleperso ON jouerole.id_role_personnage = roleperso.id_roleperso

@@ -37,7 +37,7 @@
                 $requeteGenre = $pdoGenreParticulier->fetch();
 
                 // Requete pour afficher tous les films du genre choisi
-                $rocketGenreFilms = "SELECT genre.id_genre, titre
+                $rocketGenreFilms = "SELECT film.id_film, genre.id_genre, titre
                 FROM genre
                 INNER JOIN categorie ON categorie.id_genre = genre.id_genre
                 INNER JOIN film ON categorie.id_film = film.id_film

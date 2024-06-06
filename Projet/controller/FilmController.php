@@ -29,7 +29,7 @@
             if(isset($_GET['id'])) {
 
                 // affiche un film en particulier 
-                $rocketDetailsFilm1 = "SELECT titre, resumeFilm, noteFilm, duree, anneeSortie, CONCAT(realisateur.nomReal, ' ', realisateur.prenomReal) AS Realisateur
+                $rocketDetailsFilm1 = "SELECT realisateur.id_realisateur, film.id_film, titre, resumeFilm, noteFilm, duree, anneeSortie, CONCAT(realisateur.nomReal, ' ', realisateur.prenomReal) AS Realisateur
                 FROM film
                 INNER JOIN realisateur ON realisateur.id_realisateur = film.id_realisateur
                 WHERE film.id_film = :id";
@@ -39,7 +39,7 @@
                 $requeteFilmtitre = $pdoDetailsFilm1->fetch();
 
                 // affiche le detail du film en particulier 
-                $rocketDetailsFilm = "SELECT CONCAT(realisateur.nomReal, ' ', realisateur.prenomReal) AS realisateur, CONCAT(acteur.nom, ' ', acteur.prenom) AS acteur, nomPerso AS roleActeur 
+                $rocketDetailsFilm = "SELECT acteur.id_acteur, jouerole.id_role_personnage, CONCAT(realisateur.nomReal, ' ', realisateur.prenomReal) AS realisateur, CONCAT(acteur.nom, ' ', acteur.prenom) AS acteur, nomPerso AS roleActeur 
                 FROM acteur  	
                 INNER JOIN jouerole ON acteur.id_acteur = jouerole.id_acteur  
                 INNER JOIN roleperso ON jouerole.id_role_personnage = roleperso.id_roleperso  
@@ -229,11 +229,9 @@
                 $rocketFilm3 = $pdoFilm->prepare($rocket3);
                 $rocketFilm3->execute(['id' => $id]);
                 
-                
             } else {
                 echo "Erreur de suppression\n";
             }
-            
             header("Location: index.php?action=listEditCinema");
         }
 
