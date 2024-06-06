@@ -16,10 +16,10 @@
 			</tr>
 		</thead>
 		<tbody>
-			<!-- Affiche tous les genres du tableau  -->
+			<!-- Affiche tous les genres du tableau -->
 			<?php foreach ($requeteGenreFilms as $film) { ?>
 				<tr>
-					<td><a href="index.php?action=detailFilm&id=<?= $film["id_film"] ?>"><?= $film["titre"] ?></a></td>
+					<td><a href="index.php?action=detailFilm&id=<?=$film["id_film"]?>"><?= $film["titre"] ?></a></td>
 				</tr>
 			<?php }	?>
 		</tbody>

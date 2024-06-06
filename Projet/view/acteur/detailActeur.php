@@ -21,8 +21,9 @@
 			<!-- Affiche tous les films du tableau -->
                 <?php foreach ($requeteActeur as $acteur1) { ?>
                     <!-- mettre le lien pour être dirigé vers le detailFilm.php ???? ???? ???? ???? -->
-                    <td><?= $acteur1["titre"] ?></td>
-                    <td><?= $acteur1["nomPerso"] ?></td>
+                    <!-- mettre le lien pour être dirigé vers le detailRoleperso.php ???? ???? ???? ???? -->
+                    <td><a href="index.php?action=detailFilm&id=<?=$acteur1["id_acteur"]?>"><?= $acteur1["titre"] ?></a></td>
+                    <td><a href="index.php?action=detailRoleperso&id=<?= $acteur1["id_acteur"] ?>"><?= $acteur1["nomPerso"] ?></a></td>
                     <td><?= $acteur1["anneeSortie"] ?></td>
                 </tr>
 		        <?php }	?>

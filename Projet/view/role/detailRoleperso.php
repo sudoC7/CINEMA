@@ -18,8 +18,8 @@
 			<!-- Affiche tous les films du role perso -->
 			<?php foreach ($requeteFilmRolePerso as $film) { ?>
 				<tr>
-					<td><a href=""><?= $film["titre"] ?></a></td>
-					<td><a href=""><?= $film["Acteur"] ?></a></td>
+					<td><a href="index.php?action=detailFilm&id=<?=$film["id_film"]?>"><?= $film["titre"] ?></a></td>
+					<td><a href="index.php?action=detailActeur&id=<?=$film["id_acteur"]?>"><?= $film["Acteur"] ?></a></td>
 				</tr>
 			<?php }	?>
 		</tbody>

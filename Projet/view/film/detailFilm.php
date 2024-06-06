@@ -18,7 +18,7 @@
 	<p><b>ANNEE SORTIE :</b></p>
 	<p><?= $requeteFilmtitre["anneeSortie"] ?></p>
 	<p><b>REALISATEUR :</b></p>
-	<p><a href="index.php?action=detailRealisateur&id=<?= $requeteFilmtitre["id_realisateur"]?>"><?= $requeteFilmtitre["Realisateur"] ?></a></p>
+	<p><a href="index.php?action=detailRealisateur&id=<?=$requeteFilmtitre["id_realisateur"]?>"><?= $requeteFilmtitre["Realisateur"] ?></a></p>
 
 	<table>
 		<thead>
@@ -31,8 +31,8 @@
 			<!-- Affiche tous les films du tableau  -->
 			<?php foreach ($requeteFilm as $film) { ?>
 					<tr>
-					<td><a href="index.php?action=detailFilm&id=<?= $film[""]?>"><?= $film["id_acteur"] ?></a></td>
-					<td><a href="index.php?action=detailFilm&id=<?= $film[""]?>"><?= $film["roleActeur"] ?></a></td>
+					<td><a href="index.php?action=detailActeur&id=<?= $film["id_acteur"]?>"><?= $film["acteur"] ?></a></td>
+					<td><a href="index.php?action=detailRolePerso&id=<?= $film["id_role_personnage"]?>"><?= $film["roleActeur"] ?></a></td>
 				</tr>
 			<?php }	?>
 		</tbody>
