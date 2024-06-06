@@ -21,7 +21,7 @@
         
         
         //Details des RolePersos
-        public function detailRolePerso($id) {
+        public function detailRoleperso($id) {
 
             $pdoRP1 = Connect::seConnecter();
             $pdoRP = Connect::seConnecter();
