@@ -32,7 +32,7 @@
 			<?php foreach ($requeteFilm as $film) { ?>
 					<tr>
 					<td><a href="index.php?action=detailActeur&id=<?= $film["id_acteur"]?>"><?= $film["acteur"] ?></a></td>
-					<td><a href="index.php?action=detailRolePerso&id=<?= $film["id_role_personnage"]?>"><?= $film["roleActeur"] ?></a></td>
+					<td><a href="index.php?action=detailRoleperso&id=<?= $film["id_role_personnage"]?>"><?= $film["roleActeur"] ?></a></td>
 				</tr>
 			<?php }	?>
 		</tbody>
