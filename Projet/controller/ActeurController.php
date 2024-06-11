@@ -40,7 +40,7 @@
 
                 //Affiche les films de l'acteur 
 
-                $rocketDetailActeur = "SELECT acteur.id_acteur, film.titre, roleperso.nomPerso, film.anneeSortie
+                $rocketDetailActeur = "SELECT film.id_film, jouerole.id_role_personnage, acteur.id_acteur, film.titre, roleperso.nomPerso, film.anneeSortie
                 FROM acteur
                 INNER JOIN jouerole ON acteur.id_acteur = jouerole.id_acteur
                 INNER JOIN roleperso ON jouerole.id_role_personnage = roleperso.id_roleperso

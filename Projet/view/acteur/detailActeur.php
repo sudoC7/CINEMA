@@ -22,8 +22,8 @@
                 <?php foreach ($requeteActeur as $acteur1) { ?>
                     <!-- mettre le lien pour être dirigé vers le detailFilm.php ???? ???? ???? ???? -->
                     <!-- mettre le lien pour être dirigé vers le detailRoleperso.php ???? ???? ???? ???? -->
-                    <td><a href="index.php?action=detailFilm&id=<?=$acteur1["id_acteur"]?>"><?= $acteur1["titre"] ?></a></td>
-                    <td><a href="index.php?action=detailRoleperso&id=<?= $acteur1["id_acteur"] ?>"><?= $acteur1["nomPerso"] ?></a></td>
+                    <td><a href="index.php?action=detailFilm&id=<?=$acteur1["id_film"]?>"><?= $acteur1["titre"] ?></a></td>
+                    <td><a href="index.php?action=detailRoleperso&id=<?= $acteur1["id_role_personnage"] ?>"><?= $acteur1["nomPerso"] ?></a></td>
                     <td><?= $acteur1["anneeSortie"] ?></td>
                 </tr>
 		        <?php }	?>
